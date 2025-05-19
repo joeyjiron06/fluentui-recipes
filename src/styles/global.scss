@@ -1,0 +1,48 @@
+:root {
+  /*** SIZES ***/
+  --sizeNone: 0;
+  --size20: 0.125rem; /* 2px */
+  --size40: 0.25rem; /* 4px */
+  --size60: 0.375rem; /* 6px */
+  --size80: 0.5rem; /* 8px */
+  --size100: 0.625rem; /* 10px */
+  --size120: 0.75rem; /* 12px */
+  --size160: 1rem; /* 16px */
+  --size200: 1.25rem; /* 20px */
+  --size240: 1.5rem; /* 24px */
+  --size280: 1.75rem; /* 28px */
+  --size320: 2rem; /* 32px */
+  --size360: 2.25rem; /* 36px */
+  --size400: 2.5rem; /* 40px */
+  --size480: 3rem; /* 48px */
+  --size520: 3.25rem; /* 52px */
+  --size560: 3.5rem; /* 56px */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Atkinson", sans-serif;
+}

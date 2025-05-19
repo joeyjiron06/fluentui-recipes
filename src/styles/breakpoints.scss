@@ -1,0 +1,40 @@
+$breakpoint-small: 479px;
+$breakpoint-medium: 639px;
+$breakpoint-large: 1023px;
+$breakpoint-x-large: 1365px;
+$breakpoint-xx-large: 1919px;
+
+// https://fluent2.microsoft.design/layout/#breakpoints
+// Size class	Breakpoint range	Breakpoints
+// small	320-479	< 479 pixels
+// medium	480-639	< 639 pixels
+// large	640-1023	< 1023 pixels
+// x-large	1024-1365	> 1024 pixels
+// xx-large	1366-1919	> 1366 pixels
+// xxx-large	1920 and up	> 1920 pixels
+
+@mixin sm {
+  @media screen and (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+@mixin md {
+  @media screen and (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+@mixin lg {
+  @media screen and (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+@mixin xl {
+  @media screen and (min-width: $breakpoint-x-large) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media screen and (min-width: $breakpoint-xx-large) {
+    @content;
+  }
+}
