@@ -1,12 +1,28 @@
-import { Badge, Button, Caption1 } from "@fluentui/react-components";
+import { Badge, Button, Caption1, makeStyles, tokens } from "@fluentui/react-components";
 import { PersonCircleRegular } from "@fluentui/react-icons";
 
-import "./basicFileUpload.css";
+
+const useStyles = makeStyles({
+  basicFileUpload: {
+display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+
+  },
+  actions: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalM,
+    marginBottom: tokens.spacingHorizontalM,
+  }
+})
 
 export default function BasicFileUpload() {
+  const styles = useStyles();
+
   return (
-    <div className="basic-file-upload">
-      <div className="basic-file-upload-actions">
+    <div className={styles.basicFileUpload}>
+      <div className={styles.actions}>
         <Badge
           appearance="outline"
           color="informative"

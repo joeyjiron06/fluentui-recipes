@@ -1,10 +1,15 @@
 ---
 import BaseLayout from "../../astro/layouts/baseLayout.astro";
+import path from 'node:path'
 
-export function getStaticPaths({ paginate }) {
-  const allPages = Object.keys(import.meta.glob("../../react/pages/*.tsx", { eager: true }));
+export function getStaticPaths() {
+  const allPages = Object.keys(import.meta.glob("../../react/pages/*.tsx", { eager: true }))
+  .map(filename => path.basename(filename).replace('.tsx', ''))
+  .map(page => ({
+    params: { page },
+  }));
   console.log(JSON.stringify(allPages, null, 2));
-  return paginate(allPages, {pageSize: 10});
+  return allPages;
 }
 
 const { page } = Astro.params;
