@@ -5,19 +5,21 @@ import "./header.css";
 export default function Header() {
   return (
     <header>
-      <div className="logo-container">
-        <a href="/">{<Fluent2Logo className="logo" color="black" />}</a>
+      <div className="container">
+        <div className="logo-container">
+          <a href="/">{<Fluent2Logo className="logo" color="black" />}</a>
 
-        <div className="header-divider"></div>
+          <div className="header-divider"></div>
 
-        <div className="header-title-container">
-          <Body1Strong>Recipes</Body1Strong>
+          <div className="header-title-container">
+            <Body1Strong>Recipes</Body1Strong>
 
-          <Badge size="small">unofficial</Badge>
+            <Badge size="small">unofficial</Badge>
+          </div>
         </div>
-      </div>
 
-      <div>right side</div>
+        <div>right side</div>
+      </div>
     </header>
   );
 }

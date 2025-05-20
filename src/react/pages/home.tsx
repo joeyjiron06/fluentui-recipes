@@ -38,7 +38,7 @@ const categories: Category[] = [
 
 export default function Home() {
   return (
-    <BasicLayout>
+    <BasicLayout className="container">
       <section className="hero">
         <div className="hero-text-container">
           <hgroup>

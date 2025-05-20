@@ -1,4 +1,4 @@
-@import "../../styles/breakpoints";
+@use "../../styles/breakpoints";
 
 .hero {
   display: grid;
@@ -6,7 +6,7 @@
   gap: var(--spacingHorizontalXXXL);
   padding: var(--size320) 0;
 
-  @include lg {
+  @include breakpoints.lg {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -35,10 +35,6 @@
   .hero-logo-react-icon {
     height: var(--size320);
   }
-
-  & > div {
-    border: dashed 1px black;
-  }
 }
 
 .components-section {
@@ -52,7 +48,7 @@
   grid-template-columns: 1fr;
   gap: var(--spacingHorizontalXXXL);
 
-  @include lg {
+  @include breakpoints.lg {
     grid-template-columns: repeat(3, 1fr);
   }
 

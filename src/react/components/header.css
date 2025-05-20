@@ -1,9 +1,12 @@
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--spacingVerticalM) var(--spacingHorizontalL);
   border-bottom: solid var(--strokeWidthThin) var(--colorNeutralStroke1);
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacingVerticalM) var(--spacingHorizontalL);
+  }
 }
 
 .logo-container {
