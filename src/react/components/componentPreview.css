@@ -1,0 +1,26 @@
+.component-preview {
+  position: relative;
+
+  .component-preview-code-button {
+    position: absolute;
+    top: var(--spacingVerticalS);
+    right: var(--spacingHorizontalS);
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 100ms ease-out;
+  }
+
+  .component-preview-copy-button {
+    position: absolute;
+    top: var(--spacingVerticalS);
+    right: var(--spacingHorizontalS);
+    z-index: 10;
+  }
+
+  &:hover,
+  &:focus-within {
+    .component-preview-code-button {
+      opacity: 1;
+    }
+  }
+}

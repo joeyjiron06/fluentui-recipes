@@ -1,6 +1,10 @@
 footer {
   display: flex;
-  justify-content: space-between;
-  padding: var(--spacingVerticalL) 0;
+  justify-content: center;
+  padding: var(--spacingVerticalXXXL) 0;
   margin: var(--spacingVerticalXXXL) 0;
+
+  .footer-link {
+    text-decoration: underline;
+  }
 }

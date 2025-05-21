@@ -1,21 +1,25 @@
 ---
 import BaseLayout from "../../astro/layouts/baseLayout.astro";
-import path from 'node:path'
+import path from "node:path";
 
 export function getStaticPaths() {
-  const allPages = Object.keys(import.meta.glob("../../react/pages/*.tsx", { eager: true }))
-  .map(filename => path.basename(filename).replace('.tsx', ''))
-  .map(page => ({
-    params: { page },
-  }));
+  const allPages = Object.keys(
+    import.meta.glob("../../react/pages/*.tsx", { eager: true })
+  )
+    .map((filename) => path.basename(filename).replace(".tsx", ""))
+    .map((page) => ({
+      params: { page },
+    }));
   console.log(JSON.stringify(allPages, null, 2));
   return allPages;
 }
 
 const { page } = Astro.params;
-const { default: Component } = await import(`../../react/pages/${page}.tsx`);
+const { default: Component, META } = await import(
+  `../../react/pages/${page}.tsx`
+);
 ---
 
-<BaseLayout>
-  <Component />
+<BaseLayout title={META.title} description={META.description}>
+  <Component client:load />
 </BaseLayout>

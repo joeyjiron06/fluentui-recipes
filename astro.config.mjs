@@ -12,7 +12,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
     react({
-      experimentalReactChildren: true,
+      experimentalDisableStreaming: true,
     }),
   ],
   vite: {

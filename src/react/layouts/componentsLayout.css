@@ -1,3 +1,7 @@
+.components-layout {
+  overflow: hidden;
+}
+
 .components-layout-header {
   display: flex;
   flex-direction: column;

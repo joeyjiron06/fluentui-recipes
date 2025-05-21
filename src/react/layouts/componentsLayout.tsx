@@ -13,7 +13,7 @@ export default function ComponentsLayout({
   description,
 }: Props) {
   return (
-    <BasicLayout className="container">
+    <BasicLayout className="container components-layout">
       <hgroup className="components-layout-header">
         <Title1>{title}</Title1>
         <Body1>{description}</Body1>

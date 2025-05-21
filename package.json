@@ -22,9 +22,11 @@
     "modern-normalize": "^3.0.1",
     "postcss-custom-media": "^11.0.5",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13",
     "sass": "^1.88.0",
     "vite-plugin-cjs-interop": "^2.2.0"
   }

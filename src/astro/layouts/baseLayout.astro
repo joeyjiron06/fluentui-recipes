@@ -1,11 +1,18 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.params;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead />
+    <BaseHead title={title} description={description} />
   </head>
   <body>
     <slot />

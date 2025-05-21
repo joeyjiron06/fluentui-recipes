@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../astro/layouts/baseLayout.astro";
-import FileUpload from "../react/pages/file-upload.tsx";
+import FileUploadPage, { title, description } from "../react/pages/file-upload";
 ---
 
-<BaseLayout>
-  <FileUpload />
+<BaseLayout title={title} description={description}>
+  <FileUploadPage client:load />
 </BaseLayout>
