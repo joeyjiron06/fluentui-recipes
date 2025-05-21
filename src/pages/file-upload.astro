@@ -1,8 +1,12 @@
 ---
-import BaseLayout from "../astro/layouts/baseLayout.astro";
-import FileUploadPage, { title, description } from "../react/pages/file-upload";
+import BaseLayout from '../astro/layouts/baseLayout.astro';
+import FileUploadPage from '../react/pages/file-upload';
+
+const title = 'File Upload';
+const description =
+  'A collection of file upload components built with React and Fluent UI 2';
 ---
 
 <BaseLayout title={title} description={description}>
-  <FileUploadPage client:load />
+  <FileUploadPage title={title} description={description} client:load />
 </BaseLayout>

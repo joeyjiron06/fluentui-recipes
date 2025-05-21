@@ -1,22 +1,21 @@
 import {
-  Badge,
   Button,
   Caption1,
   makeStyles,
   tokens,
-} from "@fluentui/react-components";
+} from '@fluentui/react-components';
 import {
   ArrowUploadFilled,
   DismissFilled,
   AttachFilled,
-} from "@fluentui/react-icons";
+} from '@fluentui/react-icons';
 import {
   useCallback,
   useRef,
   useState,
   type ChangeEvent,
   type DragEvent,
-} from "react";
+} from 'react';
 
 export default function Component() {
   const styles = useStyles();
@@ -32,7 +31,7 @@ export default function Component() {
         setFiles(Array.from(files));
       }
     },
-    [setFiles]
+    [setFiles],
   );
 
   const buttonClicked = useCallback(() => {
@@ -74,7 +73,7 @@ export default function Component() {
     const input = inputRef.current;
 
     if (input) {
-      input.value = "";
+      input.value = '';
     }
 
     setFiles(undefined);
@@ -88,15 +87,15 @@ export default function Component() {
       <div className={styles.badge}>
         <input
           ref={inputRef}
-          type="file"
+          type='file'
           hidden
-          name="badge-file-upload"
-          accept="*/*"
+          name='badge-file-upload'
+          accept='*/*'
           onChange={fileChanged}
         />
         <Button
-          appearance="outline"
-          color="informative"
+          appearance='outline'
+          color='informative'
           icon={hasFile ? <AttachFilled /> : <ArrowUploadFilled />}
           className={styles.button}
           onClick={buttonClicked}
@@ -104,61 +103,59 @@ export default function Component() {
           onDragLeave={dragLeave}
           onDragOver={dragOver}
           onDrop={fileDropped}
-          aria-label={hasFile ? "Change file" : "Upload file"}
-        ></Button>
+          aria-label={hasFile ? 'Change file' : 'Upload file'}></Button>
 
         {hasFile ? (
           <Button
             className={styles.closeButton}
-            appearance="primary"
-            size="small"
-            shape="circular"
+            appearance='primary'
+            size='small'
+            shape='circular'
             icon={<DismissFilled className={styles.closeIcon} />}
-            aria-label="Remove image"
-            onClick={removeButtonClicked}
-          ></Button>
+            aria-label='Remove image'
+            onClick={removeButtonClicked}></Button>
         ) : null}
       </div>
 
-      <Caption1> {fileName ?? "Upload file with droppable area"}</Caption1>
+      <Caption1> {fileName ?? 'Upload file with droppable area'}</Caption1>
     </div>
   );
 }
 
 const useStyles = makeStyles({
   fileUpload: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   badge: {
     marginBottom: tokens.spacingVerticalM,
-    position: "relative",
+    position: 'relative',
   },
   button: {
-    width: "3.5rem",
-    maxWidth: "3.5rem",
-    height: "3.5rem",
-    maxHeight: "3.5rem",
+    width: '3.5rem',
+    maxWidth: '3.5rem',
+    height: '3.5rem',
+    maxHeight: '3.5rem',
     borderRadius: tokens.borderRadiusCircular,
-    "border-style": "dashed",
+    'border-style': 'dashed',
   },
   closeButton: {
-    position: "absolute",
-    top: "0",
-    right: "0",
-    width: "1rem",
-    height: "1rem",
-    maxWidth: "1rem",
-    minWidth: "1rem",
-    maxHeight: "1rem",
-    minHeight: "1rem",
-    padding: "0.25rem",
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    width: '1rem',
+    height: '1rem',
+    maxWidth: '1rem',
+    minWidth: '1rem',
+    maxHeight: '1rem',
+    minHeight: '1rem',
+    padding: '0.25rem',
   },
   closeIcon: {
-    width: "0.625rem",
-    height: "0.625rem",
-    maxWidth: "0.625rem",
-    maxHeight: "0.625rem",
+    width: '0.625rem',
+    height: '0.625rem',
+    maxWidth: '0.625rem',
+    maxHeight: '0.625rem',
   },
 });
