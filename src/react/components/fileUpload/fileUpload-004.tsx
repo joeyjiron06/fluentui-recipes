@@ -22,7 +22,14 @@ import {
 export default function Component() {
   const styles = useStyles();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[] | undefined>();
+
+  const {
+    files,
+    handleDrop,
+    handleDragEnter,
+    handleDragLeave,
+    handleDragOver,
+  } = useFileUpload();
 
   const fileChanged = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -44,33 +51,6 @@ export default function Component() {
     }
   }, []);
 
-  const fileDropped = useCallback((event: DragEvent<HTMLElement>) => {
-    event.preventDefault();
-
-    if (event.dataTransfer.files) {
-      setFiles(Array.from(event.dataTransfer.files));
-    }
-  }, []);
-
-  const dragEnter = useCallback((e: DragEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
-  const dragLeave = useCallback((e: DragEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (e.currentTarget.contains(e.relatedTarget as Node)) {
-      return;
-    }
-  }, []);
-
-  const dragOver = useCallback((e: DragEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
   const removeButtonClicked = useCallback(() => {
     const input = inputRef.current;
 
@@ -88,18 +68,17 @@ export default function Component() {
     <div className={styles.fileUpload}>
       <div
         className={styles.container}
-        onDragEnter={dragEnter}
-        onDragLeave={dragLeave}
-        onDragOver={dragOver}
-        onDrop={fileDropped}
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
       >
         <input
           ref={inputRef}
-          type="file"
           hidden
           name="file-upload"
           accept="*/*"
-          onChange={fileChanged}
+          {...getInputProps()}
         />
         <Button
           appearance="outline"
@@ -141,6 +120,8 @@ export default function Component() {
     </div>
   );
 }
+
+// STYLES
 
 const useStyles = makeStyles({
   fileUpload: {
@@ -202,3 +183,64 @@ const useStyles = makeStyles({
     padding: "0.25rem",
   },
 });
+
+// HOOKS
+
+function useFileUpload() {
+  const [files, setFiles] = useState<File[] | undefined>();
+
+  const handleDrop = useCallback((event: DragEvent<HTMLElement>) => {
+    event.preventDefault();
+
+    if (event.dataTransfer.files) {
+      setFiles(Array.from(event.dataTransfer.files));
+    }
+  }, []);
+
+  const handleDragEnter = useCallback((e: DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+
+  const handleDragLeave = useCallback((e: DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (e.currentTarget.contains(e.relatedTarget as Node)) {
+      return;
+    }
+  }, []);
+
+  const handleDragOver = useCallback((e: DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+  }, []);
+
+  const fileChanged = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const input = event.target;
+      const files = input.files;
+
+      if (files) {
+        setFiles(Array.from(files));
+      }
+    },
+    [setFiles]
+  );
+
+  const getInputProps = useCallback(() => {
+    return {
+      type: "file",
+      onChange: fileChanged,
+    };
+  }, [fileChanged]);
+
+  return {
+    files,
+    getInputProps,
+    handleDrop,
+    handleDragEnter,
+    handleDragLeave,
+    handleDragOver,
+  };
+}
