@@ -9,42 +9,25 @@ import {
   DismissFilled,
   AttachFilled,
 } from '@fluentui/react-icons';
-import { useCallback, useRef, useState, type ChangeEvent } from 'react';
+import {
+  useCallback,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type InputHTMLAttributes,
+} from 'react';
 
 export default function Component() {
   const styles = useStyles();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[] | undefined>();
-
-  const fileChanged = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      const input = event.target;
-      const files = input.files;
-
-      if (files) {
-        setFiles(Array.from(files));
-      }
-    },
-    [setFiles],
-  );
+  const { files, getInputProps, openFileDialog, clearFiles } = useFileUpload();
 
   const buttonClicked = useCallback(() => {
-    const input = inputRef.current;
-
-    if (input) {
-      input.click();
-    }
-  }, []);
+    openFileDialog();
+  }, [openFileDialog]);
 
   const removeButtonClicked = useCallback(() => {
-    const input = inputRef.current;
-
-    if (input) {
-      input.value = '';
-    }
-
-    setFiles(undefined);
-  }, [setFiles]);
+    clearFiles();
+  }, [clearFiles]);
 
   const fileName = files && files[0].name;
   const hasFile = !!fileName;
@@ -52,14 +35,7 @@ export default function Component() {
   return (
     <div className={styles.fileUpload}>
       <div className={styles.badge}>
-        <input
-          ref={inputRef}
-          type='file'
-          hidden
-          name='badge-file-upload'
-          accept='*/*'
-          onChange={fileChanged}
-        />
+        <input {...getInputProps()} hidden name='file-upload' />
         <Button
           appearance='outline'
           color='informative'
@@ -120,3 +96,51 @@ const useStyles = makeStyles({
     maxHeight: '0.625rem',
   },
 });
+
+function useFileUpload() {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [files, setFiles] = useState<File[] | undefined>();
+
+  const fileChanged = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const input = event.target;
+      const files = input.files;
+
+      if (files) {
+        setFiles(Array.from(files));
+      }
+    },
+    [setFiles],
+  );
+
+  const clearFiles = useCallback(() => {
+    setFiles(undefined);
+    const input = inputRef.current;
+    if (input) {
+      input.value = '';
+    }
+  }, [setFiles]);
+
+  const getInputProps: () => InputHTMLAttributes<HTMLInputElement> =
+    useCallback(() => {
+      return {
+        type: 'file',
+        onChange: fileChanged,
+        ref: inputRef,
+      };
+    }, [fileChanged, inputRef]);
+
+  const openFileDialog = useCallback(() => {
+    const input = inputRef.current;
+    if (input) {
+      input.click();
+    }
+  }, []);
+
+  return {
+    files,
+    getInputProps,
+    clearFiles,
+    openFileDialog,
+  };
+}
