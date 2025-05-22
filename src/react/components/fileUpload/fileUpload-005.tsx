@@ -6,6 +6,7 @@ import {
   tokens,
 } from '@fluentui/react-components';
 import {
+  ArrowUploadRegular,
   DismissRegular,
   AttachRegular,
   DocumentArrowUpRegular,
@@ -100,7 +101,15 @@ export default function Component() {
               onClick={removeButtonClicked}></Button>
           </div>
         ) : (
-          <Body1>Drop your file here or click to browse</Body1>
+          <>
+            <Body1>Drop your file here or click to browse</Body1>
+            <Button
+              appearance='outline'
+              onClick={buttonClicked}
+              icon={<ArrowUploadRegular />}>
+              Select file
+            </Button>
+          </>
         )}
       </div>
 

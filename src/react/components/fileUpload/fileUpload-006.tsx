@@ -6,6 +6,7 @@ import {
   tokens,
 } from '@fluentui/react-components';
 import {
+  ArrowUploadRegular,
   DismissRegular,
   AttachRegular,
   DocumentArrowUpRegular,
@@ -33,7 +34,8 @@ export default function Component() {
     openFileDialog,
   } = useFileUpload();
 
-  const fileName = files && files[0].name;
+  const firstFile = files ? files[0] : undefined;
+  const fileName = firstFile?.name;
   const hasFile = !!fileName;
 
   const buttonClicked = useCallback(
@@ -84,25 +86,32 @@ export default function Component() {
           }
           aria-label={hasFile ? 'Change file' : 'Upload file'}></Button>
 
-        {fileName ? (
-          <div className={styles.fileNameContainer}>
-            <span className={styles.fileNameOverflowContainer}>
-              <div className={styles.fileName}>{fileName} </div>
-            </span>
-
-            <Button
-              className={styles.closeButton}
-              appearance='primary'
-              size='small'
-              shape='circular'
-              icon={<DismissRegular className={styles.closeIcon} />}
-              aria-label='Remove file'
-              onClick={removeButtonClicked}></Button>
-          </div>
-        ) : (
-          <Body1>Drop your file here or click to browse</Body1>
-        )}
+        <Body1>Drop your file here or click to browse</Body1>
+        <Button
+          appearance='outline'
+          onClick={buttonClicked}
+          icon={<ArrowUploadRegular />}>
+          Select file
+        </Button>
       </div>
+
+      {firstFile ? (
+        <div className={styles.fileCard}>
+          <div className={styles.fileCardNameContainer}>
+            <AttachRegular />
+            <span>{firstFile.name}</span>
+          </div>
+
+          <Button
+            size='small'
+            appearance='transparent'
+            shape='square'
+            onClick={removeButtonClicked}
+            className={styles.closeButton}>
+            <DismissRegular />
+          </Button>
+        </div>
+      ) : null}
 
       <Caption1> {'Single file uploader w/ max size'}</Caption1>
     </div>
@@ -172,13 +181,8 @@ const useStyles = makeStyles({
   closeButton: {
     flexShrink: 0,
     whiteSpace: 'nowrap',
-    width: '1rem',
-    height: '1rem',
-    maxWidth: '1rem',
-    minWidth: '1rem',
-    maxHeight: '1rem',
-    minHeight: '1rem',
-    padding: '0.25rem',
+    padding: `0 ${tokens.spacingHorizontalXS}`,
+    minWidth: '0',
   },
   input: {
     appearance: 'none',
@@ -186,6 +190,21 @@ const useStyles = makeStyles({
     top: 0,
     left: 0,
     zIndex: -1,
+  },
+  fileCard: {
+    display: 'flex',
+    gap: tokens.spacingHorizontalM,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    border: `solid ${tokens.strokeWidthThin} ${tokens.colorNeutralStroke1}`,
+    'border-radius': tokens.borderRadiusMedium,
+    padding: tokens.spacingHorizontalS,
+  },
+  fileCardNameContainer: {
+    display: 'flex',
+    gap: tokens.spacingHorizontalS,
+    alignItems: 'center',
   },
 });
 

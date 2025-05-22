@@ -5,7 +5,7 @@ import {
   tokens,
 } from '@fluentui/react-components';
 import {
-  ArrowUploadFilled,
+  DocumentArrowUpRegular,
   DismissFilled,
   AttachFilled,
 } from '@fluentui/react-icons';
@@ -49,7 +49,7 @@ export default function Component() {
         <Button
           appearance='outline'
           color='informative'
-          icon={hasFile ? <AttachFilled /> : <ArrowUploadFilled />}
+          icon={hasFile ? <AttachFilled /> : <DocumentArrowUpRegular />}
           className={styles.button}
           onClick={buttonClicked}
           onDragEnter={handleDragEnter}

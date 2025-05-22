@@ -1,24 +1,25 @@
-@use "../../styles//breakpoints.scss";
-@use "../../styles/grids.scss";
+@use '../../styles//breakpoints.scss';
+@use '../../styles/grids.scss';
 
 .component-preview-grid {
-  margin: -1px;
   overflow: hidden;
+  gap: 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: solid 2px var(--colorNeutralBackground1);
+    z-index: 1;
+    pointer-events: none;
+  }
 }
 
 .component-preview {
-  border: solid 1px var(--colorNeutralStroke1);
+  border: solid 1px var(--colorNeutralStroke3);
   padding: var(--size480) var(--size320);
-
-  // &:not(:first-child) {
-  //   margin-inline-start: -1px;
-  // }
-  margin-inline-start: -1px;
-  margin-block-start: -1px;
-
-  &:last-child {
-    margin-inline-end: -1px;
-  }
+  overflow: hidden;
 }
 
 .component-preview-sm {

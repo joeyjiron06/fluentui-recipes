@@ -5,9 +5,9 @@ import {
   tokens,
 } from '@fluentui/react-components';
 import {
-  ArrowUploadFilled,
   DismissFilled,
   AttachFilled,
+  DocumentArrowUpRegular,
 } from '@fluentui/react-icons';
 import {
   useCallback,
@@ -39,7 +39,7 @@ export default function Component() {
         <Button
           appearance='outline'
           color='informative'
-          icon={hasFile ? <AttachFilled /> : <ArrowUploadFilled />}
+          icon={hasFile ? <AttachFilled /> : <DocumentArrowUpRegular />}
           className={styles.button}
           onClick={buttonClicked}
           aria-label={hasFile ? 'Change file' : 'Upload file'}></Button>
