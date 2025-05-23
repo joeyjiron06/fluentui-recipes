@@ -12,6 +12,8 @@ import FileUpload5 from '../components/fileUpload/fileUpload-005';
 import FileUpload5Code from '../components/fileUpload/fileUpload-005?raw';
 import FileUpload6 from '../components/fileUpload/fileUpload-006';
 import FileUpload6Code from '../components/fileUpload/fileUpload-006?raw';
+import FileUpload7 from '../components/fileUpload/fileUpload-007';
+import FileUpload7Code from '../components/fileUpload/fileUpload-007?raw';
 import './file-upload.scss';
 
 type Props = {
@@ -57,6 +59,12 @@ export default function FileUpload({ title, description }: Props) {
           className='component-preview component-preview-md'
           code={FileUpload6Code}>
           <FileUpload6 />
+        </ComponentPreview>
+
+        <ComponentPreview
+          className='component-preview component-preview-md'
+          code={FileUpload7Code}>
+          <FileUpload7 />
         </ComponentPreview>
       </div>
     </ComponentsLayout>
