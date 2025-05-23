@@ -9,32 +9,39 @@ import {
   Tooltip,
   mergeClasses,
   tokens,
+  Accordion,
+  AccordionHeader,
+  AccordionItem,
+  AccordionPanel,
 } from '@fluentui/react-components';
 import { CodeFilled, DismissFilled } from '@fluentui/react-icons';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
-import prismStyles from 'react-syntax-highlighter/dist/esm/styles/prism/one-dark';
-import CopyButton from './copyButton';
-
-import './componentPreview.css';
-
-SyntaxHighlighter.registerLanguage('tsx', tsx);
+import { makeStyles } from '@fluentui/react-components';
+import SyntaxHighlighter from './syntaxHighlighter';
 
 type Props = React.PropsWithChildren & {
   code: string;
+  codeDependencies?: { code: string; title: string; key: string }[];
   className?: string;
 };
 
-export default function ComponentPreview({ children, className, code }: Props) {
+export default function ComponentPreview({
+  children,
+  className,
+  code,
+  codeDependencies,
+}: Props) {
+  const styles = useComponentPreviewStyles();
   return (
-    <div className={mergeClasses('component-preview', className)}>
+    <div className={mergeClasses(styles.root, className)}>
       {children}
-
       <Dialog>
         <DialogTrigger>
           <Tooltip content='Code' relationship='label'>
             <Button
-              className='component-preview-code-button'
+              className={mergeClasses(
+                styles.codeButton,
+                'component-preview-code-button',
+              )}
               icon={<CodeFilled />}
               appearance='transparent'
               label='code'></Button>
@@ -47,6 +54,42 @@ export default function ComponentPreview({ children, className, code }: Props) {
               display: 'flex',
               flexDirection: 'column',
             }}>
+            {codeDependencies && codeDependencies.length > 0 ? (
+              <>
+                <DialogTitle
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}>
+                  Dependencies
+                  <DialogTrigger>
+                    <Button
+                      appearance='transparent'
+                      icon={<DismissFilled />}
+                      aria-label='close dialog'></Button>
+                  </DialogTrigger>
+                </DialogTitle>
+
+                <Accordion collapsible>
+                  {codeDependencies.map(({ key, code, title }) => (
+                    <AccordionItem key={key} value={key}>
+                      <AccordionHeader>{title}</AccordionHeader>
+                      <AccordionPanel>
+                        <SyntaxHighlighter
+                          customStyle={{
+                            maxHeight: '20rem',
+                            scrollbarColor: `${tokens.colorNeutralBackgroundAlpha} transparent`,
+                          }}>
+                          {code}
+                        </SyntaxHighlighter>
+                      </AccordionPanel>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </>
+            ) : null}
+
             <DialogTitle
               style={{
                 display: 'flex',
@@ -54,12 +97,14 @@ export default function ComponentPreview({ children, className, code }: Props) {
                 justifyContent: 'space-between',
               }}>
               Code
-              <DialogTrigger>
-                <Button
-                  appearance='transparent'
-                  icon={<DismissFilled />}
-                  aria-label='close dialog'></Button>
-              </DialogTrigger>
+              {codeDependencies && codeDependencies.length === 0 ? (
+                <DialogTrigger>
+                  <Button
+                    appearance='transparent'
+                    icon={<DismissFilled />}
+                    aria-label='close dialog'></Button>
+                </DialogTrigger>
+              ) : null}
             </DialogTitle>
             <DialogContent
               style={{
@@ -67,26 +112,7 @@ export default function ComponentPreview({ children, className, code }: Props) {
                 flexGrow: 1,
                 position: 'relative',
               }}>
-              <div
-                style={{
-                  position: 'absolute',
-                  top: tokens.spacingVerticalS,
-                  right: tokens.spacingHorizontalS,
-                  zIndex: 10,
-                }}>
-                <CopyButton text={code} />
-              </div>
-
-              <SyntaxHighlighter
-                language='tsx'
-                style={prismStyles}
-                customStyle={{
-                  maxHeight: '28rem',
-                  scrollbarWidth: 'thin',
-                  scrollbarColor: `${tokens.colorNeutralBackgroundAlpha} transparent`,
-                }}>
-                {code}
-              </SyntaxHighlighter>
+              <SyntaxHighlighter>{code}</SyntaxHighlighter>
             </DialogContent>
           </DialogBody>
         </DialogSurface>
@@ -94,3 +120,27 @@ export default function ComponentPreview({ children, className, code }: Props) {
     </div>
   );
 }
+
+const useComponentPreviewStyles = makeStyles({
+  root: {
+    position: 'relative',
+    '&:hover .component-preview-code-button, &:has(.component-preview-code-button:focus-visible) .component-preview-code-button':
+      {
+        opacity: 1,
+      },
+  },
+  codeButton: {
+    position: 'absolute',
+    top: tokens.spacingVerticalS,
+    right: tokens.spacingHorizontalS,
+    zIndex: 10,
+    opacity: 0,
+    transition: 'opacity 100ms ease-out',
+  },
+  copyButton: {
+    position: 'absolute',
+    top: tokens.spacingVerticalS,
+    right: tokens.spacingHorizontalS,
+    zIndex: 10,
+  },
+});

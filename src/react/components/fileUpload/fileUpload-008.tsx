@@ -7,10 +7,13 @@ import {
   tokens,
 } from '@fluentui/react-components';
 import {
-  DismissRegular,
-  AttachRegular,
   DocumentArrowUpRegular,
   ErrorCircleRegular,
+  ArrowUploadRegular,
+  ArrowUpload16Regular,
+  Delete16Regular,
+  DismissRegular,
+  Document20Regular,
 } from '@fluentui/react-icons';
 import { useCallback } from 'react';
 import useFileUpload, { formatBytes } from '@/hooks/useFileUpload';
@@ -61,8 +64,6 @@ export default function Component() {
     multiple: true,
   });
 
-  const isDisabled = files.length >= maxFiles;
-
   const buttonClicked = useCallback(
     (event: React.MouseEvent<HTMLElement>) => {
       event.preventDefault();
@@ -90,24 +91,84 @@ export default function Component() {
           aria-label='Upload file'
           name='file-upload'
           className={styles.input}
-          disabled={isDisabled}
         />
 
-        <Button
-          appearance='outline'
-          color='informative'
-          shape='circular'
-          onClick={buttonClicked}
-          disabled={isDisabled}
-          icon={<DocumentArrowUpRegular className={styles.buttonIcon} />}
-          aria-label='Upload file'></Button>
+        {files.length === 0 ? (
+          <div className={styles.emptyStateContainer}>
+            <Button
+              appearance='outline'
+              color='informative'
+              shape='circular'
+              onClick={buttonClicked}
+              icon={<DocumentArrowUpRegular className={styles.buttonIcon} />}
+              aria-label='Upload file'></Button>
 
-        <div className={styles.textContainer}>
-          <Body1Strong as='p'>Upload files</Body1Strong>
+            <div className={styles.textContainer}>
+              <Body1Strong as='p'>Upload files</Body1Strong>
 
-          <Body1 as='p'>Drag & drop or click to browse</Body1>
-          <Caption1>All files ∙ Max 10 files</Caption1>
-        </div>
+              <Body1 as='p'>Drag & drop or click to browse</Body1>
+              <Caption1>Max 10 files</Caption1>
+            </div>
+
+            <Button
+              appearance='outline'
+              onClick={buttonClicked}
+              icon={<ArrowUploadRegular />}>
+              Select files
+            </Button>
+          </div>
+        ) : (
+          <div className={styles.fileListContainer}>
+            <div className={styles.fileListHeader}>
+              <Body1Strong>Files ({files.length})</Body1Strong>
+
+              <div className={styles.fileListHeaderActions}>
+                <Button
+                  appearance='outline'
+                  icon={<ArrowUpload16Regular />}
+                  onClick={buttonClicked}
+                  size='small'>
+                  Add files
+                </Button>
+
+                <Button
+                  appearance='outline'
+                  icon={<Delete16Regular />}
+                  size='small'
+                  onClick={removeAllButtonClicked}>
+                  Remove all
+                </Button>
+              </div>
+            </div>
+
+            <div className={styles.fileCardContainer}>
+              {files.map((file) => (
+                <div key={file.id} className={styles.fileCard}>
+                  <div className={styles.fileCardNameContainer}>
+                    <div className={styles.fileCardIconContainer}>
+                      <Document20Regular />
+                    </div>
+                    <div className={styles.fileNameContainer}>
+                      <Body1>{file.file.name}</Body1>
+                      <Caption1>{formatBytes(file.file.size)}</Caption1>
+                    </div>
+                  </div>
+
+                  <Button
+                    size='small'
+                    appearance='transparent'
+                    shape='square'
+                    onClick={() => {
+                      removeFile(file.id);
+                    }}
+                    className={styles.closeButton}>
+                    <DismissRegular />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {errors.length > 0
@@ -118,40 +179,6 @@ export default function Component() {
             </div>
           ))
         : null}
-
-      {files && files.length ? (
-        <>
-          <div className={styles.fileCardContainer}>
-            {files.map((file) => (
-              <div key={file.id} className={styles.fileCard}>
-                <div className={styles.fileCardNameContainer}>
-                  <div className={styles.fileCardIconContainer}>
-                    <AttachRegular />
-                  </div>
-                  <div className={styles.fileNameContainer}>
-                    <Body1>{file.file.name}</Body1>
-                    <Caption1>{formatBytes(file.file.size)}</Caption1>
-                  </div>
-                </div>
-
-                <Button
-                  size='small'
-                  appearance='transparent'
-                  shape='square'
-                  onClick={() => {
-                    removeFile(file.id);
-                  }}
-                  className={styles.closeButton}>
-                  <DismissRegular />
-                </Button>
-              </div>
-            ))}
-          </div>
-          <Button appearance='outline' onClick={removeAllButtonClicked}>
-            Remove all files
-          </Button>
-        </>
-      ) : null}
 
       <Caption1 className={styles.caption}>
         Multiple file uploader w/ list
@@ -170,11 +197,6 @@ const useStyles = makeStyles({
     gap: tokens.spacingVerticalM,
   },
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: tokens.spacingVerticalM,
     position: 'relative',
     borderRadius: tokens.borderRadiusLarge,
     'border-style': 'dashed',
@@ -185,17 +207,18 @@ const useStyles = makeStyles({
     minHeight: '13rem',
     transition: 'background-color 100ms ease-in-out',
 
-    ':hover:not:has(input:disabled)': {
-      backgroundColor: tokens.colorNeutralBackground2,
-    },
-
     ':has(input:focus-visible)': {
       outline: `solid ${tokens.strokeWidthThick} ${tokens.colorNeutralStrokeAccessible}`,
     },
-
-    ':has(input:disabled)': {
-      opacity: 0.5,
-    },
+  },
+  emptyStateContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: tokens.spacingVerticalM,
+    inset: '0',
+    position: 'absolute',
   },
   closeIcon: {
     width: '0.625rem',
@@ -264,6 +287,7 @@ const useStyles = makeStyles({
     height: '2rem',
     borderRadius: tokens.borderRadiusMedium,
     border: `solid ${tokens.strokeWidthThin} ${tokens.colorNeutralStroke1}`,
+    color: tokens.colorNeutralForeground4,
   },
   fileCardContainer: {
     alignSelf: 'stretch',
@@ -281,5 +305,20 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
     gap: tokens.spacingHorizontalXXS,
+  },
+  fileListContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalM,
+  },
+  fileListHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+  },
+  fileListHeaderActions: {
+    display: 'flex',
+    gap: tokens.spacingHorizontalS,
   },
 });

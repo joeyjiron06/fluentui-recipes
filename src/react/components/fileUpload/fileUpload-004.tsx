@@ -10,14 +10,8 @@ import {
   AttachRegular,
   DocumentArrowUpRegular,
 } from '@fluentui/react-icons';
-import {
-  useCallback,
-  useRef,
-  useState,
-  type ChangeEvent,
-  type DragEvent,
-  type InputHTMLAttributes,
-} from 'react';
+import { useCallback } from 'react';
+import useFileUpload from '@/hooks/useFileUpload';
 
 export default function Component() {
   const styles = useStyles();
@@ -33,7 +27,7 @@ export default function Component() {
     openFileDialog,
   } = useFileUpload();
 
-  const fileName = files && files[0].name;
+  const fileName = files[0]?.file.name;
   const hasFile = !!fileName;
 
   const buttonClicked = useCallback(
@@ -56,7 +50,7 @@ export default function Component() {
 
   return (
     <div className={styles.fileUpload}>
-      <div
+      <label
         className={styles.container}
         onDrag={handleDragOver}
         onDragEnter={handleDragEnter}
@@ -102,9 +96,9 @@ export default function Component() {
         ) : (
           <Body1>Drop your file here or click to browse</Body1>
         )}
-      </div>
+      </label>
 
-      <Caption1> {'Single file uploader w/ max size'}</Caption1>
+      <Caption1>Single file uploader</Caption1>
     </div>
   );
 }
@@ -188,84 +182,3 @@ const useStyles = makeStyles({
     zIndex: -1,
   },
 });
-
-// HOOKS
-
-function useFileUpload() {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[] | undefined>();
-
-  const fileChanged = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      const input = event.target;
-      const files = input.files;
-
-      if (files) {
-        setFiles(Array.from(files));
-      }
-    },
-    [setFiles],
-  );
-
-  const clearFiles = useCallback(() => {
-    setFiles(undefined);
-    const input = inputRef.current;
-    if (input) {
-      input.value = '';
-    }
-  }, [setFiles]);
-
-  const getInputProps: () => InputHTMLAttributes<HTMLInputElement> =
-    useCallback(() => {
-      return {
-        type: 'file',
-        onChange: fileChanged,
-        ref: inputRef,
-      };
-    }, [fileChanged, inputRef]);
-
-  const openFileDialog = useCallback(() => {
-    const input = inputRef.current;
-    if (input) {
-      input.click();
-    }
-  }, []);
-
-  const handleDrop = useCallback((event: DragEvent<HTMLElement>) => {
-    event.preventDefault();
-
-    if (event.dataTransfer.files) {
-      setFiles(Array.from(event.dataTransfer.files));
-    }
-  }, []);
-
-  const handleDragEnter = useCallback((e: DragEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
-  const handleDragLeave = useCallback((e: DragEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (e.currentTarget.contains(e.relatedTarget as Node)) {
-      return;
-    }
-  }, []);
-
-  const handleDragOver = useCallback((e: DragEvent<HTMLElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  }, []);
-
-  return {
-    files,
-    getInputProps,
-    clearFiles,
-    openFileDialog,
-    handleDrop,
-    handleDragEnter,
-    handleDragLeave,
-    handleDragOver,
-  };
-}

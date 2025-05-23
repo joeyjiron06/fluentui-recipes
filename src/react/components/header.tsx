@@ -1,19 +1,25 @@
 import Fluent2Logo from '../icons/fluent';
-import { Badge, Body1Strong } from '@fluentui/react-components';
-import './header.css';
+import {
+  Badge,
+  Body1Strong,
+  makeStyles,
+  mergeClasses,
+  tokens,
+} from '@fluentui/react-components';
 
 export default function Header() {
+  const styles = useStyles();
   return (
-    <header>
-      <div className='container'>
-        <div className='logo-container'>
+    <header className={styles.root}>
+      <div className={mergeClasses('container', styles.container)}>
+        <div className={styles.logoContainer}>
           <a href='/' aria-label='home'>
-            {<Fluent2Logo className='logo' color='black' />}
+            {<Fluent2Logo className={styles.logo} color='black' />}
           </a>
 
-          <div className='header-divider'></div>
+          <div className={styles.divider}></div>
 
-          <div className='header-title-container'>
+          <div className={styles.titleContainer}>
             <Body1Strong>Recipes</Body1Strong>
 
             <Badge size='small'>unofficial</Badge>
@@ -25,3 +31,36 @@ export default function Header() {
     </header>
   );
 }
+
+const useStyles = makeStyles({
+  root: {
+    borderBottom: `solid ${tokens.strokeWidthThin} ${tokens.colorNeutralStroke1}`,
+  },
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: `${tokens.spacingVerticalM} ${tokens.spacingHorizontalL}`,
+  },
+  logoContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  logo: {
+    height: '1.5rem',
+    objectFit: 'contain',
+    width: 'auto',
+  },
+  divider: {
+    height: 'auto',
+    alignSelf: 'stretch',
+    width: '1px',
+    borderLeft: `solid ${tokens.strokeWidthThin} ${tokens.colorNeutralStroke2}`,
+    margin: `0 ${tokens.spacingHorizontalL}`,
+  },
+  titleContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalXS,
+  },
+});
