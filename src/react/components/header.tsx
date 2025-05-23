@@ -6,6 +6,7 @@ import {
   mergeClasses,
   tokens,
 } from '@fluentui/react-components';
+import GithubIcon from '../icons/github';
 
 export default function Header() {
   const styles = useStyles();
@@ -13,7 +14,7 @@ export default function Header() {
     <header className={styles.root}>
       <div className={mergeClasses('container', styles.container)}>
         <div className={styles.logoContainer}>
-          <a href='/' aria-label='home'>
+          <a href={import.meta.env.BASE_URL} aria-label='home'>
             {<Fluent2Logo className={styles.logo} color='black' />}
           </a>
 
@@ -26,7 +27,26 @@ export default function Header() {
           </div>
         </div>
 
-        <div>right side</div>
+        <div className={styles.links}>
+          <a
+            href='https://www.buymeacoffee.com/joeyjiron06'
+            target='_blank'
+            rel='noreferrer'>
+            <img
+              src='https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png'
+              alt='Buy Me A Coffee'
+              style={{ height: 32, width: 'auto' }}
+            />
+          </a>
+
+          <a
+            href='https://github.com/joeyjiron06/fluentui-recipes'
+            target='_blank'
+            rel='noreferrer'
+            aria-label='github'>
+            <GithubIcon className={styles.githubIcon} width={24} height={24} />
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -62,5 +82,20 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     gap: tokens.spacingHorizontalXS,
+  },
+  links: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalM,
+  },
+  githubIcon: {
+    width: '1.5rem',
+    height: '1.5rem',
+    color: tokens.colorNeutralForeground2,
+    transition: 'color 100ms ease-in-out',
+
+    ':hover': {
+      color: tokens.colorBrandBackground,
+    },
   },
 });

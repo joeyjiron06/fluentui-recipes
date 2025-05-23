@@ -1,4 +1,4 @@
-import BasicLayout from "../layouts/basicLayout";
+import BasicLayout from '../layouts/basicLayout';
 import {
   Button,
   Display,
@@ -7,12 +7,12 @@ import {
   Subtitle2,
   Caption1,
   Subtitle1,
-} from "@fluentui/react-components";
-import FluentLogo from "../icons/fluent";
-import ReactLogo from "../icons/react";
-import FileUploadImg from "../icons/file-upload.png";
-import NavbarsImg from "../icons/navbars.png";
-import "./home.scss";
+} from '@fluentui/react-components';
+import FluentLogo from '../icons/fluent';
+import ReactLogo from '../icons/react';
+import FileUploadImg from '../icons/file-upload.png';
+import NavbarsImg from '../icons/navbars.png';
+import './home.scss';
 
 type Category = {
   title: string;
@@ -23,36 +23,36 @@ type Category = {
 
 const categories: Category[] = [
   {
-    title: "File Upload",
-    description: "12 components",
-    href: "/file-upload",
-    image: <img src={FileUploadImg.src} alt="file upload" />,
+    title: 'File Upload',
+    description: '12 components',
+    href: 'file-upload',
+    image: <img src={FileUploadImg.src} alt='file upload' />,
   },
-  {
-    title: "Navbars",
-    description: "12 components",
-    href: "/navbars",
-    image: <img src={NavbarsImg.src} alt="navbars" />,
-  },
+  // {
+  //   title: 'Navbars',
+  //   description: '12 components',
+  //   href: 'navbars',
+  //   image: <img src={NavbarsImg.src} alt='navbars' />,
+  // },
 ];
 
 export default function Home() {
   return (
-    <BasicLayout className="container">
-      <section className="hero">
-        <div className="hero-text-container">
+    <BasicLayout className='container'>
+      <section className='hero'>
+        <div className='hero-text-container'>
           <hgroup>
             <Body1Strong>UI BLOCKS WRITTEN IN REACT</Body1Strong>
-            <Display as="h1">
+            <Display as='h1'>
               Beautiful UI components, crafted with Fluent UI
             </Display>
           </hgroup>
 
-          <div className="hero-logos-container">
+          <div className='hero-logos-container'>
             <FluentLogo />
 
-            <div className="hero-logo-react-icon-container">
-              <ReactLogo className="hero-logo-react-icon" />
+            <div className='hero-logo-react-icon-container'>
+              <ReactLogo className='hero-logo-react-icon' />
               <Body1Stronger>React</Body1Stronger>
             </div>
           </div>
@@ -63,32 +63,37 @@ export default function Home() {
             Fluent UI 2 React and customize to your hearts content.
           </Subtitle2>
 
-          <div>
-            <Button appearance="primary">Read Docs</Button>
-          </div>
+          <div>{/* <Button appearance='primary'>Read Docs</Button> */}</div>
         </div>
 
-        <div>right side</div>
+        <div></div>
       </section>
 
-      <section className="components-section">
+      <section className='components-section'>
         <hgroup>
-          <Subtitle1 as="h2">Components</Subtitle1>
+          <Subtitle1 as='h2'>Components</Subtitle1>
         </hgroup>
-        <div className="categories-grid">
+        <div className='categories-grid'>
           {categories.map((category) => (
             <a
               href={category.href}
               key={category.title}
-              className="category-card"
-            >
-              <div className="category-card-image">{category.image}</div>
-              <div className="category-card-text">
+              className='category-card'>
+              <div className='category-card-image'>{category.image}</div>
+              <div className='category-card-text'>
                 <Body1Stronger>{category.title}</Body1Stronger>
                 <Caption1>{category.description}</Caption1>
               </div>
             </a>
           ))}
+
+          <span className='category-card'>
+            <div
+              className='category-card-image'
+              style={{ flexGrow: 1, marginBottom: '3.25rem' }}>
+              More coming soon
+            </div>
+          </span>
         </div>
       </section>
     </BasicLayout>
