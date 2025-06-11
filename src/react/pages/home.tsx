@@ -1,6 +1,5 @@
 import BasicLayout from '../layouts/basicLayout';
 import {
-  Button,
   Display,
   Body1Strong,
   Body1Stronger,
@@ -11,7 +10,7 @@ import {
 import FluentLogo from '../icons/fluent';
 import ReactLogo from '../icons/react';
 import FileUploadImg from '../icons/file-upload.png';
-import NavbarsImg from '../icons/navbars.png';
+import NavbarImg from '../icons/navbar.png';
 import './home.scss';
 
 type Category = {
@@ -28,12 +27,12 @@ const categories: Category[] = [
     href: 'file-upload',
     image: <img src={FileUploadImg.src} alt='file upload' />,
   },
-  // {
-  //   title: 'Navbars',
-  //   description: '12 components',
-  //   href: 'navbars',
-  //   image: <img src={NavbarsImg.src} alt='navbars' />,
-  // },
+  {
+    title: 'Navbar',
+    description: '12 components',
+    href: 'navbar',
+    image: <img src={NavbarImg.src} alt='navbar' />,
+  },
 ];
 
 export default function Home() {

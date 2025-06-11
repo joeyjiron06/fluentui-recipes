@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../astro/layouts/baseLayout.astro';
+import NavbarPage from '../react/pages/navbar';
+
+const title = 'Navbar';
+const description =
+  'A growing collection of navbar components built with React and Fluent UI 2';
+---
+
+<BaseLayout title={title} description={description}>
+  <NavbarPage title={title} description={description} client:load />
+</BaseLayout>

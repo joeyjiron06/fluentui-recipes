@@ -17,11 +17,15 @@ import {
 import { CodeFilled, DismissFilled } from '@fluentui/react-icons';
 import { makeStyles } from '@fluentui/react-components';
 import SyntaxHighlighter from './syntaxHighlighter';
+import { breakpoints } from '@/theme';
+
+type ComponentSize = 'sm' | 'md' | 'lg';
 
 type Props = React.PropsWithChildren & {
   code: string;
   codeDependencies?: { code: string; title: string; key: string }[];
   className?: string;
+  size?: ComponentSize;
 };
 
 export default function ComponentPreview({
@@ -29,10 +33,26 @@ export default function ComponentPreview({
   className,
   code,
   codeDependencies,
+  size = 'md',
 }: Props) {
   const styles = useComponentPreviewStyles();
+
+  // Map size prop to style classes
+  const sizeStyles = {
+    sm: styles.small,
+    md: styles.medium,
+    lg: styles.large,
+  };
+
   return (
-    <div className={mergeClasses(styles.root, className)}>
+    <div
+      className={mergeClasses(
+        styles.root,
+        sizeStyles[size],
+        'component-preview',
+        `component-preview-${size}`,
+        className,
+      )}>
       {children}
       <Dialog>
         <DialogTrigger>
@@ -124,10 +144,33 @@ export default function ComponentPreview({
 const useComponentPreviewStyles = makeStyles({
   root: {
     position: 'relative',
+    border: `solid 1px ${tokens.colorNeutralStroke3}`,
+    padding: `var(--size480) var(--size320)`,
+    overflow: 'hidden',
+    gridColumn: 'span 12 / span 12',
     '&:hover .component-preview-code-button, &:has(.component-preview-code-button:focus-visible) .component-preview-code-button':
       {
         opacity: 1,
       },
+  },
+  small: {
+    gridColumn: 'span 12 / span 12',
+    [breakpoints.sm]: {
+      gridColumn: 'span 6 / span 6',
+    },
+    [breakpoints.lg]: {
+      gridColumn: 'span 4 / span 4',
+    },
+  },
+  medium: {
+    gridColumn: 'span 12 / span 12',
+
+    [breakpoints.md]: {
+      gridColumn: 'span 6 / span 6',
+    },
+  },
+  large: {
+    gridColumn: 'span 12 / span 12',
   },
   codeButton: {
     position: 'absolute',

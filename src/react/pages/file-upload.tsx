@@ -19,7 +19,6 @@ import FileUpload8 from '../components/fileUpload/fileUpload-008';
 import FileUpload8Code from '../components/fileUpload/fileUpload-008?raw';
 import FileUpload9 from '../components/fileUpload/fileUpload-009';
 import FileUpload9Code from '../components/fileUpload/fileUpload-009?raw';
-import './file-upload.scss';
 
 type Props = {
   title: string;
@@ -35,68 +34,62 @@ const fileUploadDependency = {
 export default function FileUpload({ title, description }: Props) {
   return (
     <ComponentsLayout title={title} description={description}>
-      <div className='grid-cols-12 component-preview-grid'>
-        <ComponentPreview
-          className='component-preview component-preview-sm'
-          code={FileUpload1Code}>
-          <FileUpload1 />
-        </ComponentPreview>
+      <ComponentPreview size='sm' code={FileUpload1Code}>
+        <FileUpload1 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-sm'
-          code={FileUpload2Code}>
-          <FileUpload2 />
-        </ComponentPreview>
+      <ComponentPreview size='sm' code={FileUpload2Code}>
+        <FileUpload2 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-sm'
-          code={FileUpload3Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload3 />
-        </ComponentPreview>
+      <ComponentPreview
+        size='sm'
+        code={FileUpload3Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload3 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-md'
-          code={FileUpload4Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload4 />
-        </ComponentPreview>
+      <ComponentPreview
+        size='md'
+        code={FileUpload4Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload4 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-md'
-          code={FileUpload5Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload5 />
-        </ComponentPreview>
+      <ComponentPreview
+        size='md'
+        code={FileUpload5Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload5 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-md'
-          code={FileUpload6Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload6 />
-        </ComponentPreview>
+      <ComponentPreview
+        size='md'
+        code={FileUpload6Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload6 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-md'
-          code={FileUpload7Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload7 />
-        </ComponentPreview>
+      <ComponentPreview
+        size='md'
+        code={FileUpload7Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload7 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-md'
-          code={FileUpload8Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload8 />
-        </ComponentPreview>
+      <ComponentPreview
+        size='md'
+        code={FileUpload8Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload8 />
+      </ComponentPreview>
 
-        <ComponentPreview
-          className='component-preview component-preview-lg'
-          code={FileUpload9Code}
-          codeDependencies={[fileUploadDependency]}>
-          <FileUpload9 />
-        </ComponentPreview>
-      </div>
+      <ComponentPreview
+        size='lg'
+        code={FileUpload9Code}
+        codeDependencies={[fileUploadDependency]}>
+        <FileUpload9 />
+      </ComponentPreview>
     </ComponentsLayout>
   );
 }
