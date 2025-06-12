@@ -8,10 +8,55 @@ import {
   MenuPopover,
   MenuList,
   MenuItemLink,
+  MenuGroup,
+  MenuGroupHeader,
+  Caption1,
+  MenuDivider,
 } from '@fluentui/react-components';
 import { useCallback } from 'react';
 import { breakpoints } from '@/theme';
-import { NavigationFilled } from '@fluentui/react-icons';
+import { ChevronDown12Filled, NavigationFilled } from '@fluentui/react-icons';
+
+const links = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'Features',
+    children: [
+      {
+        title: 'Components',
+        description: 'Browse all components in the library',
+        href: '/features/feature1',
+      },
+      {
+        title: 'Documentation',
+        description: 'Learn how to use the library',
+        href: '/features/feature2',
+      },
+      {
+        title: 'Templates',
+        description: 'Pre-built layouts for common use cases',
+        href: '/features/feature2',
+      },
+    ],
+  },
+  {
+    title: 'Pricing',
+    children: [
+      { title: 'Product A', href: '/pricing/product-a' },
+      { title: 'Product B', href: '/pricing/product-b' },
+      { title: 'Product C', href: '/pricing/product-c' },
+      { title: 'Product D', href: '/pricing/product-d' },
+      { title: 'Product E', href: '/pricing/product-e' },
+    ],
+  },
+  {
+    title: 'About',
+    href: '/about',
+  },
+];
 
 export default function Component() {
   const styles = useStyles();
@@ -39,10 +84,30 @@ export default function Component() {
 
             <MenuPopover>
               <MenuList>
-                <MenuItemLink href='/'>Home</MenuItemLink>
-                <MenuItemLink href='/features'>Features</MenuItemLink>
-                <MenuItemLink href='/pricing'>Pricing</MenuItemLink>
-                <MenuItemLink href='/about'>About</MenuItemLink>
+                {links.map((link) => {
+                  if (link.children) {
+                    return (
+                      <>
+                        <MenuDivider></MenuDivider>
+                        <MenuGroup key={link.title}>
+                          <MenuGroupHeader>{link.title}</MenuGroupHeader>
+
+                          {link.children.map((child) => (
+                            <MenuItemLink key={child.href} href={child.href}>
+                              {child.title}
+                            </MenuItemLink>
+                          ))}
+                        </MenuGroup>
+                      </>
+                    );
+                  }
+
+                  return (
+                    <MenuItemLink key={link.href} href={link.href}>
+                      {link.title}
+                    </MenuItemLink>
+                  );
+                })}
               </MenuList>
             </MenuPopover>
           </Menu>
@@ -63,18 +128,39 @@ export default function Component() {
           </a>
 
           <div className={styles.navLinks}>
-            <Link appearance='subtle' href='/'>
-              Home
-            </Link>
-            <Link appearance='subtle' href='/features'>
-              Features
-            </Link>
-            <Link appearance='subtle' href='/pricing'>
-              Pricing
-            </Link>
-            <Link appearance='subtle' href='/about'>
-              About
-            </Link>
+            {links.map((link) => {
+              if (link.children) {
+                return (
+                  <Menu key={link.title} positioning={{ autoSize: true }}>
+                    <MenuTrigger disableButtonEnhancement>
+                      <Button
+                        icon={<ChevronDown12Filled />}
+                        iconPosition='after'
+                        aria-label='menu'
+                        appearance='transparent'>
+                        {link.title}
+                      </Button>
+                    </MenuTrigger>
+
+                    <MenuPopover>
+                      <MenuList>
+                        {link.children.map((child) => (
+                          <MenuItemLink key={child.href} href={child.href}>
+                            {child.title}
+                          </MenuItemLink>
+                        ))}
+                      </MenuList>
+                    </MenuPopover>
+                  </Menu>
+                );
+              }
+
+              return (
+                <Link appearance='subtle' href={link.href} key={link.href}>
+                  {link.title}
+                </Link>
+              );
+            })}
           </div>
         </div>
 

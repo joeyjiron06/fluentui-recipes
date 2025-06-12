@@ -2,6 +2,8 @@ import ComponentsLayout from '../layouts/componentsLayout';
 import ComponentPreview from '../components/componentPreview';
 import Navbar001 from '../components/navbar/navbar-001';
 import Navbar001Code from '../components/navbar/navbar-001?raw';
+import Navbar002 from '../components/navbar/navbar-002';
+import Navbar002Code from '../components/navbar/navbar-002?raw';
 import { Divider, makeStyles, tokens } from '@fluentui/react-components';
 
 type Props = {
@@ -21,6 +23,13 @@ export default function NavbarPage({ title, description }: Props) {
       </ComponentPreview>
 
       <Divider style={{ gridColumn: 'span 12 / span 12' }}></Divider>
+
+      <ComponentPreview
+        size='lg'
+        code={Navbar002Code}
+        className={styles.componentPreview}>
+        <Navbar002 />
+      </ComponentPreview>
     </ComponentsLayout>
   );
 }

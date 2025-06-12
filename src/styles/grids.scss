@@ -1,6 +1,0 @@
-@use "./breakpoints.scss";
-
-.grid-cols-12 {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
