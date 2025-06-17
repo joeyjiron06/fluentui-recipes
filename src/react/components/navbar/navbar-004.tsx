@@ -7,9 +7,10 @@ import {
   MenuPopover,
   MenuList,
   MenuItemLink,
+  Input,
 } from '@fluentui/react-components';
 import { breakpoints } from '@/theme';
-import { NavigationFilled } from '@fluentui/react-icons';
+import { NavigationFilled, Search12Regular } from '@fluentui/react-icons';
 
 export default function Component() {
   const styles = useStyles();
@@ -31,7 +32,6 @@ export default function Component() {
               <MenuList>
                 <MenuItemLink href='/'>Home</MenuItemLink>
                 <MenuItemLink href='/features'>Features</MenuItemLink>
-                <MenuItemLink href='/pricing'>Pricing</MenuItemLink>
                 <MenuItemLink href='/about'>About</MenuItemLink>
               </MenuList>
             </MenuPopover>
@@ -59,12 +59,14 @@ export default function Component() {
             <Button as='a' appearance='subtle' href='/features'>
               Features
             </Button>
-            <Button as='a' appearance='subtle' href='/pricing'>
-              Pricing
-            </Button>
             <Button as='a' appearance='subtle' href='/about'>
               About
             </Button>
+
+            <Input
+              contentBefore={<Search12Regular />}
+              placeholder='Search...'
+            />
           </div>
         </div>
 

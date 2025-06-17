@@ -7,9 +7,24 @@ import {
   MenuPopover,
   MenuList,
   MenuItemLink,
+  MenuDivider,
+  Popover,
+  PopoverTrigger,
+  PopoverSurface,
+  Body1Strong,
+  Body1,
+  Badge,
 } from '@fluentui/react-components';
 import { breakpoints } from '@/theme';
-import { NavigationFilled } from '@fluentui/react-icons';
+import {
+  AlertRegular,
+  ArrowExitRegular,
+  NavigationFilled,
+  PersonFilled,
+  PersonRegular,
+  ReceiptRegular,
+  SettingsRegular,
+} from '@fluentui/react-icons';
 
 export default function Component() {
   const styles = useStyles();
@@ -31,7 +46,6 @@ export default function Component() {
               <MenuList>
                 <MenuItemLink href='/'>Home</MenuItemLink>
                 <MenuItemLink href='/features'>Features</MenuItemLink>
-                <MenuItemLink href='/pricing'>Pricing</MenuItemLink>
                 <MenuItemLink href='/about'>About</MenuItemLink>
               </MenuList>
             </MenuPopover>
@@ -53,14 +67,11 @@ export default function Component() {
           </a>
 
           <div className={styles.navLinks}>
-            <Button as='a' appearance='subtle' href='/' data-active>
+            <Button as='a' appearance='subtle' href='/'>
               Home
             </Button>
             <Button as='a' appearance='subtle' href='/features'>
               Features
-            </Button>
-            <Button as='a' appearance='subtle' href='/pricing'>
-              Pricing
             </Button>
             <Button as='a' appearance='subtle' href='/about'>
               About
@@ -69,20 +80,72 @@ export default function Component() {
         </div>
 
         <div className={styles.rightSection}>
-          <Button
-            as='a'
-            href='/login'
-            appearance='transparent'
-            className={styles.actionButton}>
-            Sign In
-          </Button>
-          <Button
-            as='a'
-            href='/signup'
-            appearance='primary'
-            className={styles.actionButton}>
-            Get Started
-          </Button>
+          <Popover positioning='below-end'>
+            <PopoverTrigger disableButtonEnhancement>
+              <div className={styles.notificationButtonContainer}>
+                <Button
+                  aria-label='notifications'
+                  icon={<AlertRegular />}
+                  appearance='transparent'></Button>
+                <Badge
+                  appearance='filled'
+                  size='extra-small'
+                  color='danger'
+                  className={styles.notificationBadge}
+                />
+              </div>
+            </PopoverTrigger>
+
+            <PopoverSurface tabIndex={-1}>
+              {[
+                {
+                  title: 'Notification 1',
+                  content: 'This is the first notification.',
+                },
+                {
+                  title: 'Notification 2',
+                  content: 'This is the second notification.',
+                },
+                {
+                  title: 'Notification 3',
+                  content: 'This is the third notification.',
+                },
+              ].map((notification, index) => (
+                <div key={index} className={styles.notificationCard}>
+                  <Body1Strong>{notification.title}</Body1Strong>
+                  <Body1>{notification.content}</Body1>
+                </div>
+              ))}
+            </PopoverSurface>
+          </Popover>
+
+          <Menu positioning={{ autoSize: true }}>
+            <MenuTrigger disableButtonEnhancement>
+              <Button
+                icon={<PersonFilled />}
+                aria-label='user menu'
+                shape='circular'></Button>
+            </MenuTrigger>
+
+            <MenuPopover>
+              <MenuList>
+                <MenuItemLink href='/account' icon={<PersonRegular />}>
+                  Account
+                </MenuItemLink>
+                <MenuItemLink href='/settings' icon={<SettingsRegular />}>
+                  Settings
+                </MenuItemLink>
+                <MenuItemLink href='/billing' icon={<ReceiptRegular />}>
+                  Billing
+                </MenuItemLink>
+
+                <MenuDivider />
+                <MenuItemLink href='/about' icon={<ArrowExitRegular />}>
+                  Logout
+                </MenuItemLink>
+              </MenuList>
+            </MenuPopover>
+          </Menu>
         </div>
       </div>
     </header>
@@ -104,12 +167,7 @@ const useStyles = makeStyles({
     margin: '0 auto',
     padding: `0 ${tokens.spacingHorizontalL}`,
   },
-  menu: {
-    display: 'block',
-    [breakpoints.lg]: {
-      display: 'none',
-    },
-  },
+
   leftSection: {
     display: 'flex',
     alignItems: 'center',
@@ -124,6 +182,12 @@ const useStyles = makeStyles({
   logo: {
     height: '30px',
     width: 'auto',
+  },
+  menu: {
+    display: 'block',
+    [breakpoints.lg]: {
+      display: 'none',
+    },
   },
   navLinks: {
     display: 'none',
@@ -153,5 +217,20 @@ const useStyles = makeStyles({
   },
   actionButton: {
     flexShrink: 0,
+  },
+  notificationButtonContainer: {
+    position: 'relative',
+  },
+  notificationBadge: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    // transform: 'translate(50%, -50%)',
+  },
+  notificationCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalXS,
+    padding: tokens.spacingVerticalS,
   },
 });

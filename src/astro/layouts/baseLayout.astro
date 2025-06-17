@@ -6,13 +6,13 @@ interface Props {
   description?: string;
 }
 
-const { title, description } = Astro.params;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title ? `${title} | Fluent UI Recipes` : undefined} description={description} />
   </head>
   <body>
     <slot />

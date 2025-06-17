@@ -2,7 +2,6 @@ import {
   Button,
   makeStyles,
   tokens,
-  Link,
   Menu,
   MenuTrigger,
   MenuPopover,
@@ -10,12 +9,11 @@ import {
   MenuItemLink,
   MenuGroup,
   MenuGroupHeader,
-  Caption1,
   MenuDivider,
+  MenuButton,
 } from '@fluentui/react-components';
-import { useCallback } from 'react';
 import { breakpoints } from '@/theme';
-import { ChevronDown12Filled, NavigationFilled } from '@fluentui/react-icons';
+import { NavigationFilled } from '@fluentui/react-icons';
 
 const links = [
   {
@@ -61,16 +59,8 @@ const links = [
 export default function Component() {
   const styles = useStyles();
 
-  const handleSignIn = useCallback(() => {
-    console.log('Sign In clicked');
-  }, []);
-
-  const handleGetStarted = useCallback(() => {
-    console.log('Get Started clicked');
-  }, []);
-
   return (
-    <nav className={styles.root}>
+    <header className={styles.root}>
       <div className={styles.container}>
         <div className={styles.leftSection}>
           <Menu positioning={{ autoSize: true }}>
@@ -133,13 +123,9 @@ export default function Component() {
                 return (
                   <Menu key={link.title} positioning={{ autoSize: true }}>
                     <MenuTrigger disableButtonEnhancement>
-                      <Button
-                        icon={<ChevronDown12Filled />}
-                        iconPosition='after'
-                        aria-label='menu'
-                        appearance='transparent'>
+                      <MenuButton className={styles.navLink}>
                         {link.title}
-                      </Button>
+                      </MenuButton>
                     </MenuTrigger>
 
                     <MenuPopover>
@@ -156,9 +142,14 @@ export default function Component() {
               }
 
               return (
-                <Link appearance='subtle' href={link.href} key={link.href}>
+                <Button
+                  as='a'
+                  appearance='subtle'
+                  href={link.href}
+                  key={link.href}
+                  className={styles.navLink}>
                   {link.title}
-                </Link>
+                </Button>
               );
             })}
           </div>
@@ -166,21 +157,22 @@ export default function Component() {
 
         <div className={styles.rightSection}>
           <Button
-            href='/signin'
-            onClick={handleSignIn}
+            as='a'
+            href='/login'
             appearance='transparent'
             className={styles.actionButton}>
             Sign In
           </Button>
           <Button
+            as='a'
+            href='/signup'
             appearance='primary'
-            onClick={handleGetStarted}
             className={styles.actionButton}>
             Get Started
           </Button>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }
 
@@ -223,11 +215,22 @@ const useStyles = makeStyles({
   navLinks: {
     display: 'none',
     alignItems: 'center',
-    gap: tokens.spacingHorizontalXS,
+    gap: tokens.spacingHorizontalS,
 
     [breakpoints.lg]: {
       display: 'flex',
-      gap: tokens.spacingHorizontalL,
+    },
+  },
+  navLink: {
+    minWidth: 0,
+    width: 'auto',
+    border: 'none',
+    fontWeight: tokens.fontWeightRegular,
+
+    '& [data-active]': {
+      backgroundColor: tokens.colorSubtleBackgroundHover,
+      color: tokens.colorNeutralForeground1,
+      fontWeight: tokens.fontWeightMedium,
     },
   },
   rightSection: {
