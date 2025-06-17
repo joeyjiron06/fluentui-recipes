@@ -81,7 +81,7 @@ export default function Home() {
               <div className='category-card-image'>{category.image}</div>
               <div className='category-card-text'>
                 <Body1Stronger>{category.title}</Body1Stronger>
-                <Caption1>{category.description}</Caption1>
+                {/* <Caption1>{category.description}</Caption1> */}
               </div>
             </a>
           ))}
@@ -89,8 +89,18 @@ export default function Home() {
           <span className='category-card'>
             <div
               className='category-card-image'
-              style={{ flexGrow: 1, marginBottom: '3.25rem' }}>
+              style={{
+                flexGrow: 1,
+              }}>
               More coming soon
+            </div>
+
+            <div className='category-card-text'>
+              <Body1Stronger
+                style={{ visibility: 'hidden' }}
+                aria-hidden='true'>
+                _
+              </Body1Stronger>
             </div>
           </span>
         </div>
