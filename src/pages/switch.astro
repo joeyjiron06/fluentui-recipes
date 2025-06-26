@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../astro/layouts/baseLayout.astro';
+import Page from '../react/pages/switch';
+
+const title = 'Switch';
+const description =
+  'A growing collection of switch components built with React and Fluent UI 2';
+---
+
+<BaseLayout title={title} description={description}>
+  <Page title={title} description={description} client:load />
+</BaseLayout>

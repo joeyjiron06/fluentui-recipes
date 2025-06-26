@@ -4,13 +4,13 @@ import {
   Body1Strong,
   Body1Stronger,
   Subtitle2,
-  Caption1,
   Subtitle1,
 } from '@fluentui/react-components';
 import FluentLogo from '../icons/fluent';
 import ReactLogo from '../icons/react';
 import FileUploadImg from '../icons/file-upload.png';
 import NavbarImg from '../icons/navbar.png';
+import SwitchImg from '../icons/switch.png';
 import './home.scss';
 
 type Category = {
@@ -32,6 +32,12 @@ const categories: Category[] = [
     description: '12 components',
     href: 'navbar',
     image: <img src={NavbarImg.src} alt='navbar' />,
+  },
+  {
+    title: 'Switch',
+    description: '12 components',
+    href: 'switch',
+    image: <img src={SwitchImg.src} alt='switch' />,
   },
 ];
 
