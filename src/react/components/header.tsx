@@ -1,6 +1,5 @@
 import Fluent2Logo from '../icons/fluent';
 import {
-  Badge,
   Body1Strong,
   makeStyles,
   mergeClasses,
@@ -15,15 +14,13 @@ export default function Header() {
       <div className={mergeClasses('container', styles.container)}>
         <div className={styles.logoContainer}>
           <a href={import.meta.env.BASE_URL} aria-label='home'>
-            {<Fluent2Logo className={styles.logo} color='black' />}
+            {<Fluent2Logo className={styles.logo} />}
           </a>
 
           <div className={styles.divider}></div>
 
           <div className={styles.titleContainer}>
             <Body1Strong>Recipes</Body1Strong>
-
-            <Badge size='small'>unofficial</Badge>
           </div>
         </div>
 

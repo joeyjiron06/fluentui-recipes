@@ -9,21 +9,34 @@ import {
   Tooltip,
   mergeClasses,
   tokens,
-  Accordion,
-  AccordionHeader,
-  AccordionItem,
-  AccordionPanel,
+  TabList,
+  Tab,
+  type SelectTabEvent,
+  type SelectTabData,
 } from '@fluentui/react-components';
 import { CodeFilled, DismissFilled } from '@fluentui/react-icons';
 import { makeStyles } from '@fluentui/react-components';
+import { useState } from 'react';
 import SyntaxHighlighter from './syntaxHighlighter';
 import { breakpoints } from '@/theme';
 
 type ComponentSize = 'sm' | 'md' | 'lg';
 
+type PackageManager = 'pnpm' | 'npm' | 'yarn' | 'bun';
+
+const installCommand: Record<PackageManager, (name: string) => string> = {
+  pnpm: (name) => `pnpm dlx fluentui-recipes@latest add ${name}`,
+  npm: (name) => `npx fluentui-recipes@latest add ${name}`,
+  yarn: (name) => `yarn dlx fluentui-recipes@latest add ${name}`,
+  bun: (name) => `bunx fluentui-recipes@latest add ${name}`,
+};
+
+const packageManagers = Object.keys(installCommand) as PackageManager[];
+
 type Props = React.PropsWithChildren & {
+  /** Registry item name, e.g. `fileUpload001`. Drives the install command. */
+  name: string;
   code: string;
-  codeDependencies?: { code: string; title: string; key: string }[];
   className?: string;
   size?: ComponentSize;
 };
@@ -31,11 +44,12 @@ type Props = React.PropsWithChildren & {
 export default function ComponentPreview({
   children,
   className,
+  name,
   code,
-  codeDependencies,
   size = 'md',
 }: Props) {
   const styles = useComponentPreviewStyles();
+  const [packageManager, setPackageManager] = useState<PackageManager>('pnpm');
 
   // Map size prop to style classes
   const sizeStyles = {
@@ -74,41 +88,34 @@ export default function ComponentPreview({
               display: 'flex',
               flexDirection: 'column',
             }}>
-            {codeDependencies && codeDependencies.length > 0 ? (
-              <>
-                <DialogTitle
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}>
-                  Dependencies
-                  <DialogTrigger>
-                    <Button
-                      appearance='transparent'
-                      icon={<DismissFilled />}
-                      aria-label='close dialog'></Button>
-                  </DialogTrigger>
-                </DialogTitle>
-
-                <Accordion collapsible>
-                  {codeDependencies.map(({ key, code, title }) => (
-                    <AccordionItem key={key} value={key}>
-                      <AccordionHeader>{title}</AccordionHeader>
-                      <AccordionPanel>
-                        <SyntaxHighlighter
-                          customStyle={{
-                            maxHeight: '20rem',
-                            scrollbarColor: `${tokens.colorNeutralBackgroundAlpha} transparent`,
-                          }}>
-                          {code}
-                        </SyntaxHighlighter>
-                      </AccordionPanel>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </>
-            ) : null}
+            <DialogTitle
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}>
+              Installation
+              <DialogTrigger>
+                <Button
+                  appearance='transparent'
+                  icon={<DismissFilled />}
+                  aria-label='close dialog'></Button>
+              </DialogTrigger>
+            </DialogTitle>
+            <TabList
+              selectedValue={packageManager}
+              onTabSelect={(_event: SelectTabEvent, data: SelectTabData) =>
+                setPackageManager(data.value as PackageManager)
+              }>
+              {packageManagers.map((pm) => (
+                <Tab key={pm} value={pm}>
+                  {pm}
+                </Tab>
+              ))}
+            </TabList>
+            <SyntaxHighlighter customStyle={{ maxHeight: 'none' }}>
+              {installCommand[packageManager](name)}
+            </SyntaxHighlighter>
 
             <DialogTitle
               style={{
@@ -117,14 +124,6 @@ export default function ComponentPreview({
                 justifyContent: 'space-between',
               }}>
               Code
-              {codeDependencies && codeDependencies.length === 0 ? (
-                <DialogTrigger>
-                  <Button
-                    appearance='transparent'
-                    icon={<DismissFilled />}
-                    aria-label='close dialog'></Button>
-                </DialogTrigger>
-              ) : null}
             </DialogTitle>
             <DialogContent
               style={{

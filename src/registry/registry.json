@@ -1,0 +1,958 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "homepage": "https://coss.com/origin",
+  "name": "fluentui-recipes",
+  "items": [
+    {
+      "files": [
+        {
+          "path": "theme.ts",
+          "type": "registry:lib"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "theme",
+          "breakpoints",
+          "responsive"
+        ]
+      },
+      "name": "theme",
+      "type": "registry:lib"
+    },
+    {
+      "files": [
+        {
+          "path": "hooks/useFileUpload.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "hook"
+        ]
+      },
+      "name": "useFileUpload",
+      "type": "registry:hook"
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload001.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input"
+        ]
+      },
+      "name": "fileUpload001",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload002.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "button"
+        ]
+      },
+      "name": "fileUpload002",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload003.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone"
+        ]
+      },
+      "name": "fileUpload003",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload004.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone"
+        ]
+      },
+      "name": "fileUpload004",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload005.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone"
+        ]
+      },
+      "name": "fileUpload005",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload006.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone"
+        ]
+      },
+      "name": "fileUpload006",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload007.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone"
+        ]
+      },
+      "name": "fileUpload007",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload008.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone"
+        ]
+      },
+      "name": "fileUpload008",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload009.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone",
+          "multiple"
+        ]
+      },
+      "name": "fileUpload009",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload010.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "avatar",
+          "image"
+        ]
+      },
+      "name": "fileUpload010",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload011.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "avatar",
+          "image",
+          "drag and drop"
+        ]
+      },
+      "name": "fileUpload011",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload012.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone",
+          "image",
+          "multiple"
+        ]
+      },
+      "name": "fileUpload012",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload013.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "drag and drop",
+          "dropzone",
+          "image",
+          "multiple"
+        ]
+      },
+      "name": "fileUpload013",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/fileUpload/fileUpload014.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "file upload",
+          "file",
+          "file input",
+          "form input",
+          "image",
+          "crop",
+          "canvas"
+        ]
+      },
+      "name": "fileUpload014",
+      "registryDependencies": [
+        "useFileUpload"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar001.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "menu"
+        ]
+      },
+      "name": "navbar001",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar002.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "menu",
+          "dropdown"
+        ]
+      },
+      "name": "navbar002",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar003.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "menu",
+          "tabs",
+          "active"
+        ]
+      },
+      "name": "navbar003",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar004.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "menu",
+          "search",
+          "ecommerce",
+          "cart"
+        ]
+      },
+      "name": "navbar004",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar005.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "menu",
+          "notification",
+          "user menu",
+          "avatar"
+        ]
+      },
+      "name": "navbar005",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar006.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "icon",
+          "tooltip",
+          "theme toggle",
+          "language",
+          "user menu"
+        ]
+      },
+      "name": "navbar006",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar007.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "breadcrumb",
+          "dropdown",
+          "notification",
+          "user menu"
+        ]
+      },
+      "name": "navbar007",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar008.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "search",
+          "notification",
+          "user menu"
+        ]
+      },
+      "name": "navbar008",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar009.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "search",
+          "icon",
+          "notification",
+          "user menu"
+        ]
+      },
+      "name": "navbar009",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar010.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "search",
+          "theme toggle"
+        ]
+      },
+      "name": "navbar010",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar011.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "icon",
+          "search"
+        ]
+      },
+      "name": "navbar011",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar012.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "icon",
+          "user menu",
+          "logo center"
+        ]
+      },
+      "name": "navbar012",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar013.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "breadcrumb",
+          "dropdown",
+          "settings",
+          "user menu"
+        ]
+      },
+      "name": "navbar013",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar014.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "team switcher",
+          "icon",
+          "notification",
+          "user menu"
+        ]
+      },
+      "name": "navbar014",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar015.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "dropdown",
+          "ai",
+          "user menu"
+        ]
+      },
+      "name": "navbar015",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar016.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "search",
+          "switch",
+          "notification",
+          "settings"
+        ]
+      },
+      "name": "navbar016",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar017.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "breadcrumb",
+          "filters",
+          "date"
+        ]
+      },
+      "name": "navbar017",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar018.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "team switcher",
+          "tabs",
+          "toggle"
+        ]
+      },
+      "name": "navbar018",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar019.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "avatar",
+          "presence",
+          "toolbar"
+        ]
+      },
+      "name": "navbar019",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/navbar/navbar020.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "navbar",
+          "navigation",
+          "header",
+          "tabs",
+          "badge",
+          "switch",
+          "status"
+        ]
+      },
+      "name": "navbar020",
+      "registryDependencies": [
+        "theme"
+      ],
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    }
+  ]
+}

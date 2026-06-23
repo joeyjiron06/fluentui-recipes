@@ -1,6 +1,6 @@
-import FluentProvider from "../components/utils/fluentProvider.tsx";
-import Footer from "../components/footer";
-import Header from "../components/header";
+import Footer from '../components/footer';
+import Header from '../components/header';
+import FluentProvider from '../styles/fluentProvider';
 
 type Props = React.PropsWithChildren & {
   className?: string;
@@ -9,11 +9,9 @@ type Props = React.PropsWithChildren & {
 export default function BasicLayout({ children, className }: Props) {
   return (
     <FluentProvider>
-      <div>
-        <Header />
-        <main className={className}>{children}</main>
-        <Footer />
-      </div>
+      <Header />
+      <main className={className}>{children}</main>
+      <Footer />
     </FluentProvider>
   );
 }
