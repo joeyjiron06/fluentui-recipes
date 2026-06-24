@@ -26,4 +26,4 @@ jobs:
       - run: npm install -g npm@latest
       - run: npm install
       - run: npm run build:cli
-      - run: npm publish
+      - run: npm publish --tag beta
