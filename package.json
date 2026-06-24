@@ -2,6 +2,7 @@
   "name": "fluentui-recipes",
   "type": "module",
   "version": "0.0.1-beta.3",
+  "description": "A collection of Fluent UI components and layouts built with React, ready to be copied and pasted into your own projects.",
   "bin": {
     "fluentui-recipes": "dist/cli.js"
   },
@@ -9,6 +10,12 @@
     "dist/cli.js",
     "src/registry"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joeyjiron06/fluentui-recipes"
+  },
+  "author": "Joey Jiron <joeyjiron06@gmail.com>",
+  "license": "ISC",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
