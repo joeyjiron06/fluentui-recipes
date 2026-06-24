@@ -6,12 +6,89 @@ import {
   Subtitle2,
   Caption1,
   Subtitle1,
+  makeStyles,
+  tokens,
 } from '@fluentui/react-components';
+import { breakpoints, customTokens } from '@/theme';
 import FluentLogo from '../icons/fluent';
 import ReactLogo from '../icons/react';
 import FileUploadImg from '../icons/file-upload.png';
 import NavbarImg from '../icons/navbar.png';
-import './home.scss';
+
+const useStyles = makeStyles({
+  hero: {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: tokens.spacingHorizontalXXXL,
+    padding: `${customTokens.size320} 0`,
+  },
+  heroTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingHorizontalXXXL,
+    maxWidth: '50rem',
+    '& hgroup': {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+  },
+  heroLogosContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalXXXL,
+  },
+  heroLogoReactIconContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalS,
+  },
+  heroLogoReactIcon: {
+    height: customTokens.size320,
+  },
+  componentsSection: {
+    '& hgroup': {
+      marginBottom: tokens.spacingVerticalXXXL,
+    },
+  },
+  categoriesGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+    gap: tokens.spacingHorizontalXXXL,
+    alignItems: 'stretch',
+    justifyContent: 'stretch',
+    [breakpoints.lg]: {
+      gridTemplateColumns: 'repeat(3, 1fr)',
+    },
+  },
+  categoryCard: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingHorizontalL,
+    borderRadius: tokens.borderRadiusXLarge,
+    backgroundColor: tokens.colorNeutralBackground1,
+    boxShadow: tokens.shadow4,
+    cursor: 'pointer',
+  },
+  categoryCardImage: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: `solid ${tokens.strokeWidthThin} ${tokens.colorNeutralStroke1}`,
+    borderRadius: tokens.borderRadiusMedium,
+    overflow: 'hidden',
+    '& img': {
+      width: '100%',
+      height: '100%',
+      display: 'block',
+      objectFit: 'cover',
+    },
+  },
+  categoryCardText: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingHorizontalXXS,
+  },
+});
 
 type Category = {
   title: string;
@@ -36,10 +113,11 @@ const categories: Category[] = [
 ];
 
 export default function Home() {
+  const styles = useStyles();
   return (
     <BasicLayout className='container'>
-      <section className='hero'>
-        <div className='hero-text-container'>
+      <section className={styles.hero}>
+        <div className={styles.heroTextContainer}>
           <hgroup>
             <Body1Strong>UI BLOCKS WRITTEN IN REACT</Body1Strong>
             <Display as='h1'>
@@ -47,11 +125,11 @@ export default function Home() {
             </Display>
           </hgroup>
 
-          <div className='hero-logos-container'>
+          <div className={styles.heroLogosContainer}>
             <FluentLogo />
 
-            <div className='hero-logo-react-icon-container'>
-              <ReactLogo className='hero-logo-react-icon' />
+            <div className={styles.heroLogoReactIconContainer}>
+              <ReactLogo className={styles.heroLogoReactIcon} />
               <Body1Stronger>React</Body1Stronger>
             </div>
           </div>
@@ -68,27 +146,27 @@ export default function Home() {
         <div></div>
       </section>
 
-      <section className='components-section'>
+      <section className={styles.componentsSection}>
         <hgroup>
           <Subtitle1 as='h2'>Components</Subtitle1>
         </hgroup>
-        <div className='categories-grid'>
+        <div className={styles.categoriesGrid}>
           {categories.map((category) => (
             <a
               href={category.href}
               key={category.title}
-              className='category-card'>
-              <div className='category-card-image'>{category.image}</div>
-              <div className='category-card-text'>
+              className={styles.categoryCard}>
+              <div className={styles.categoryCardImage}>{category.image}</div>
+              <div className={styles.categoryCardText}>
                 <Body1Stronger>{category.title}</Body1Stronger>
                 <Caption1>{category.description}</Caption1>
               </div>
             </a>
           ))}
 
-          <span className='category-card'>
+          <span className={styles.categoryCard}>
             <div
-              className='category-card-image'
+              className={styles.categoryCardImage}
               style={{ flexGrow: 1, marginBottom: '3.25rem' }}>
               More coming soon
             </div>

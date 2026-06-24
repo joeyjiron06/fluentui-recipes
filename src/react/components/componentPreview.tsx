@@ -18,7 +18,7 @@ import { CodeFilled, DismissFilled } from '@fluentui/react-icons';
 import { makeStyles } from '@fluentui/react-components';
 import { useState } from 'react';
 import SyntaxHighlighter from './syntaxHighlighter';
-import { breakpoints } from '@/theme';
+import { breakpoints, customTokens } from '@/theme';
 
 type ComponentSize = 'sm' | 'md' | 'lg';
 
@@ -144,7 +144,7 @@ const useComponentPreviewStyles = makeStyles({
   root: {
     position: 'relative',
     border: `solid 1px ${tokens.colorNeutralStroke3}`,
-    padding: `var(--size480) var(--size320)`,
+    padding: `${customTokens.size480} ${customTokens.size320}`,
     overflow: 'hidden',
     gridColumn: 'span 12 / span 12',
     '&:hover .component-preview-code-button, &:has(.component-preview-code-button:focus-visible) .component-preview-code-button':
