@@ -1,25 +1,14 @@
 /*
   Global Styles
   color-scheme is light dark and we generate a stylesheet from fluent ui components
-
 */
-:root {
-  color-scheme: light dark;
-}
-
-html[data-theme='light'] {
-  color-scheme: light;
-}
-
-html[data-theme='dark'] {
-  color-scheme: dark;
-}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -43,27 +32,23 @@ body {
 }
 
 /* Default light mode icons */
+html[data-theme='light'] {
+  #light-icon {
+    display: none;
+  }
 
-#light-icon {
-  display: none;
-}
-#dark-icon {
-  display: inline-flex;
+  #dark-icon {
+    display: inline-flex;
+  }
 }
 
 /* Dark mode icons */
-@media (prefers-color-scheme: dark) {
+html[data-theme='dark'] {
   #light-icon {
     display: inline-flex;
   }
+
   #dark-icon {
     display: none;
   }
-}
-
-html[data-theme='dark'] #light-icon {
-  display: none;
-}
-html[data-theme='dark'] #dark-icon {
-  display: inline-flex;
 }

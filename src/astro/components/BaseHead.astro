@@ -3,7 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import '../../styles/global.css';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { createStyleSheet, lightDarkTheme } from '../../react/styles/styles';
+import { createStyleSheet } from '../../react/styles/styles';
 import { getFluentStyleElements } from '../../react/styles/fluentProvider';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
   image?: string;
 }
 
-const fluentThemeStylesheet = createStyleSheet(lightDarkTheme);
+const fluentThemeStylesheet = createStyleSheet();
 const fluentStyles = getFluentStyleElements();
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -40,14 +40,25 @@ const {
 -->
 <script is:inline>
   (function () {
-    try {
-      const theme = localStorage.getItem('theme');
-      if (theme !== null && theme !== undefined) {
-        document.documentElement.setAttribute('data-theme', theme);
-      }
-    } catch (e) {
-      /* localStorage may be unavailable (e.g. privacy mode); ignore. */
+    function getPreferredTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
     }
+
+    function getStoredTheme() {
+      try {
+        return localStorage.getItem('theme');
+      } catch {
+        /* localStorage may be unavailable (e.g. privacy mode); ignore. */
+        return null;
+      }
+    }
+
+    const storedTheme = getStoredTheme();
+    const theme = storedTheme || getPreferredTheme();
+
+    document.documentElement.setAttribute('data-theme', theme);
   })();
 </script>
 

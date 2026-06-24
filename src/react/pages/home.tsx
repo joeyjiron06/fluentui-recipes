@@ -7,6 +7,9 @@ import {
   Subtitle1,
   makeStyles,
   tokens,
+  Card,
+  CardPreview,
+  CardFooter,
 } from '@fluentui/react-components';
 import { breakpoints, customTokens } from '@/theme';
 import FluentLogo from '../icons/fluent';
@@ -20,7 +23,7 @@ const useStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: '1fr',
     gap: tokens.spacingHorizontalXXXL,
-    padding: `${customTokens.size320} 0`,
+    padding: `${tokens.spacingVerticalXXXL} 0`,
   },
   heroTextContainer: {
     display: 'flex',
@@ -43,7 +46,7 @@ const useStyles = makeStyles({
     gap: tokens.spacingHorizontalS,
   },
   heroLogoReactIcon: {
-    height: customTokens.size320,
+    height: tokens.spacingVerticalXXXL,
   },
   componentsSection: {
     '& hgroup': {
@@ -56,37 +59,31 @@ const useStyles = makeStyles({
     gap: tokens.spacingHorizontalXXXL,
     alignItems: 'stretch',
     justifyContent: 'stretch',
+    gridAutoRows: customTokens.containerXs,
     [breakpoints.lg]: {
       gridTemplateColumns: 'repeat(3, 1fr)',
     },
   },
+
   categoryCard: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: tokens.spacingHorizontalL,
-    borderRadius: tokens.borderRadiusXLarge,
-    backgroundColor: tokens.colorNeutralBackground1,
-    boxShadow: tokens.shadow4,
-    cursor: 'pointer',
+    height: '100%',
+
+    '& .fui-CardPreview': {
+      minHeight: 0,
+    },
+
+    '& .fui-CardFooter': {
+      flexGrow: 1,
+      alignItems: 'flex-end',
+    },
   },
-  categoryCardImage: {
+
+  comingSoon: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    border: `solid ${tokens.strokeWidthThin} ${tokens.colorNeutralStroke1}`,
-    borderRadius: tokens.borderRadiusMedium,
-    overflow: 'hidden',
-    '& img': {
-      width: '100%',
-      height: '100%',
-      display: 'block',
-      objectFit: 'cover',
-    },
-  },
-  categoryCardText: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: tokens.spacingHorizontalXXS,
+    width: '100%',
+    marginTop: customTokens.spacing9XL,
   },
 });
 
@@ -102,19 +99,43 @@ const categories: Category[] = [
     title: 'File Upload',
     description: '12 components',
     href: 'file-upload',
-    image: <img src={FileUploadImg.src} alt='file upload' />,
+    image: (
+      <img
+        src={FileUploadImg.src}
+        width={FileUploadImg.width}
+        height={FileUploadImg.height}
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+        alt='file upload'
+      />
+    ),
   },
   {
     title: 'Navbar',
     description: '12 components',
     href: 'navbar',
-    image: <img src={NavbarImg.src} alt='navbar' />,
+    image: (
+      <img
+        src={NavbarImg.src}
+        width={NavbarImg.width}
+        height={NavbarImg.height}
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+        alt='navbar'
+      />
+    ),
   },
   {
     title: 'Switch',
     description: '12 components',
     href: 'switch',
-    image: <img src={SwitchImg.src} alt='switch' />,
+    image: (
+      <img
+        src={SwitchImg.src}
+        width={SwitchImg.width}
+        height={SwitchImg.height}
+        alt='switch'
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+      />
+    ),
   },
 ];
 
@@ -158,33 +179,20 @@ export default function Home() {
         </hgroup>
         <div className={styles.categoriesGrid}>
           {categories.map((category) => (
-            <a
-              href={category.href}
-              key={category.title}
-              className={styles.categoryCard}>
-              <div className={styles.categoryCardImage}>{category.image}</div>
-              <div className={styles.categoryCardText}>
-                <Body1Stronger>{category.title}</Body1Stronger>
-                {/* <Caption1>{category.description}</Caption1> */}
-              </div>
+            <a href={category.href} key={category.title}>
+              <Card className={styles.categoryCard}>
+                <CardPreview>{category.image}</CardPreview>
+
+                <CardFooter>
+                  <Body1Stronger>{category.title}</Body1Stronger>
+                </CardFooter>
+              </Card>
             </a>
           ))}
+        </div>
 
-          <span className={styles.categoryCard}>
-            <div
-              className={styles.categoryCardImage}
-              style={{ flexGrow: 1, marginBottom: '3.25rem' }}>
-              More coming soon
-            </div>
-
-            <div className='category-card-text'>
-              <Body1Stronger
-                style={{ visibility: 'hidden' }}
-                aria-hidden='true'>
-                _
-              </Body1Stronger>
-            </div>
-          </span>
+        <div className={styles.comingSoon}>
+          <Body1Stronger>More coming soon</Body1Stronger>
         </div>
       </section>
     </BasicLayout>

@@ -144,7 +144,7 @@ const useComponentPreviewStyles = makeStyles({
   root: {
     position: 'relative',
     border: `solid 1px ${tokens.colorNeutralStroke3}`,
-    padding: `${customTokens.size480} ${customTokens.size320}`,
+    padding: `${customTokens.spacing7XL} ${tokens.spacingVerticalXXXL}`,
     overflow: 'hidden',
     gridColumn: 'span 12 / span 12',
     '&:hover .component-preview-code-button, &:has(.component-preview-code-button:focus-visible) .component-preview-code-button':
