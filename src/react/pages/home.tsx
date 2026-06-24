@@ -4,7 +4,6 @@ import {
   Body1Strong,
   Body1Stronger,
   Subtitle2,
-  Caption1,
   Subtitle1,
   makeStyles,
   tokens,
@@ -110,6 +109,12 @@ const categories: Category[] = [
     href: 'navbar',
     image: <img src={NavbarImg.src} alt='navbar' />,
   },
+  {
+    title: 'Switch',
+    description: '12 components',
+    href: 'switch',
+    image: <img src={SwitchImg.src} alt='switch' />,
+  },
 ];
 
 export default function Home() {
@@ -159,7 +164,7 @@ export default function Home() {
               <div className={styles.categoryCardImage}>{category.image}</div>
               <div className={styles.categoryCardText}>
                 <Body1Stronger>{category.title}</Body1Stronger>
-                <Caption1>{category.description}</Caption1>
+                {/* <Caption1>{category.description}</Caption1> */}
               </div>
             </a>
           ))}
@@ -169,6 +174,14 @@ export default function Home() {
               className={styles.categoryCardImage}
               style={{ flexGrow: 1, marginBottom: '3.25rem' }}>
               More coming soon
+            </div>
+
+            <div className='category-card-text'>
+              <Body1Stronger
+                style={{ visibility: 'hidden' }}
+                aria-hidden='true'>
+                _
+              </Body1Stronger>
             </div>
           </span>
         </div>

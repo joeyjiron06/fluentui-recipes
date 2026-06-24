@@ -1,8 +1,7 @@
 import { Fragment } from 'react';
 import ComponentsLayout from '../layouts/componentsLayout';
 import ComponentPreview from '../components/componentPreview';
-import { Divider, makeStyles, tokens } from '@fluentui/react-components';
-
+import { makeStyles, tokens } from '@fluentui/react-components';
 import Navbar001 from '@/components/navbar/navbar001';
 import Navbar001Code from '@/components/navbar/navbar001?raw';
 import Navbar002 from '@/components/navbar/navbar002';
