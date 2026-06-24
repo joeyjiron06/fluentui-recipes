@@ -8,7 +8,7 @@ import {
 } from '../lib/config.js';
 import {
   loadRegistry,
-  getRegistryRoot,
+  fetchRegistryFile,
   resolveTree,
   type RegistryItem,
 } from '../lib/registry.js';
@@ -33,7 +33,6 @@ type FileAction = 'create' | 'overwrite' | 'skip';
 type PlannedFile = {
   registryPath: string;
   targetPath: string;
-  contents: string;
   action: FileAction;
 };
 
@@ -84,16 +83,13 @@ export async function runAdd(
     throw error;
   }
 
-  // 3. Plan file writes.
+  // 3. Plan file writes. Contents are fetched later (only for files actually
+  //    written), so a dry run stays fully offline.
   const installRoot = resolveInstallRoot(options, config);
-  const registryRoot = getRegistryRoot();
   const planned: PlannedFile[] = [];
 
   for (const item of tree.items) {
     for (const file of item.files) {
-      const sourcePath = path.join(registryRoot, file.path);
-      const raw = fs.readFileSync(sourcePath, 'utf8');
-      const contents = rewriteImports(raw, file.path, config.alias);
       // Mirror the registry layout (components/..., hooks/...) under the root.
       const targetPath = path.join(installRoot, file.path);
 
@@ -104,7 +100,6 @@ export async function runAdd(
       planned.push({
         registryPath: file.path,
         targetPath,
-        contents,
         action,
       });
     }
@@ -140,7 +135,37 @@ export async function runAdd(
     }
   }
 
-  // 7. Write files.
+  // 7. Fetch + transform every file that will be written, before touching the
+  //    user's disk, so a network/404 failure aborts cleanly with nothing
+  //    half-written (see ADR 0003).
+  const toWrite = planned.filter((file) => file.action !== 'skip');
+  let contentsByPath: Map<string, string>;
+  if (toWrite.length > 0) {
+    const spinner = p.spinner();
+    spinner.start('Fetching component source from GitHub');
+    try {
+      const entries = await Promise.all(
+        toWrite.map(async (file) => {
+          const raw = await fetchRegistryFile(file.registryPath);
+          const contents = rewriteImports(
+            raw,
+            file.registryPath,
+            config.alias,
+          );
+          return [file.registryPath, contents] as const;
+        }),
+      );
+      contentsByPath = new Map(entries);
+      spinner.stop(`Fetched ${toWrite.length} file(s).`);
+    } catch (error) {
+      spinner.stop('Failed to fetch component source');
+      throw error;
+    }
+  } else {
+    contentsByPath = new Map();
+  }
+
+  // 8. Write files.
   const created: string[] = [];
   const overwritten: string[] = [];
   const skipped: string[] = [];
@@ -152,12 +177,12 @@ export async function runAdd(
       continue;
     }
     fs.mkdirSync(path.dirname(file.targetPath), { recursive: true });
-    fs.writeFileSync(file.targetPath, file.contents);
+    fs.writeFileSync(file.targetPath, contentsByPath.get(file.registryPath)!);
     if (file.action === 'overwrite') overwritten.push(rel);
     else created.push(rel);
   }
 
-  // 8. Install npm dependencies.
+  // 9. Install npm dependencies.
   if (missingDeps.length > 0) {
     const pm = await getPackageManager(options.cwd);
     const spinner = p.spinner();
@@ -171,7 +196,7 @@ export async function runAdd(
     }
   }
 
-  // 9. Summary.
+  // 10. Summary.
   const summary: string[] = [];
   if (created.length) summary.push(`Created ${created.length} file(s).`);
   if (overwritten.length)

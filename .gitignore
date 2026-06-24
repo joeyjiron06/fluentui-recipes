@@ -1,5 +1,7 @@
 # build output
 dist/
+# generated build metadata (written by scripts/write-build-info.js, shipped via package.json files)
+build.json
 # generated types
 .astro/
 
