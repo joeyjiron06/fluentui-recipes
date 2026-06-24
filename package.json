@@ -1,7 +1,7 @@
 {
   "name": "fluentui-recipes",
   "type": "module",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "bin": {
     "fluentui-recipes": "dist/cli.js"
   },
