@@ -38,10 +38,7 @@ const useStyles = makeStyles({
     flexDirection: 'row',
     gap: tokens.spacingHorizontalM,
     position: 'relative',
-    border: 'solid 1px transparent',
-    ':has(input:checked)': {
-      'border-color': tokens.colorNeutralStroke1,
-    },
+    border: `solid 1px ${tokens.colorNeutralStroke1}`,
   },
   switch: {
     flexShrink: 0,

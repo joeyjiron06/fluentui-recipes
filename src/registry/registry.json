@@ -1176,6 +1176,174 @@
       "dependencies": [
         "@fluentui/react-components"
       ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch011.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "segmented",
+          "theme toggle",
+          "icon",
+          "dark mode",
+          "rounded"
+        ]
+      },
+      "name": "switch011",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch012.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "square",
+          "thumb",
+          "indicator"
+        ]
+      },
+      "name": "switch012",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch013.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "material",
+          "thumb",
+          "indicator"
+        ]
+      },
+      "name": "switch013",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch014.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "segmented",
+          "theme toggle",
+          "icon",
+          "dark mode"
+        ]
+      },
+      "name": "switch014",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch015.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "segmented",
+          "label",
+          "on off"
+        ]
+      },
+      "name": "switch015",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch016.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "card",
+          "label",
+          "description",
+          "logo"
+        ]
+      },
+      "name": "switch016",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/switch/switch017.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "switch",
+          "toggle",
+          "form input",
+          "card",
+          "label",
+          "description",
+          "logo"
+        ]
+      },
+      "name": "switch017",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
     }
   ]
 }
