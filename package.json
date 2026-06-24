@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1-beta.2",
   "bin": {
-    "fluentui-recipes": "./dist/cli.js"
+    "fluentui-recipes": "dist/cli.js"
   },
   "files": [
     "dist/cli.js",
