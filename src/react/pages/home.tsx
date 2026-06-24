@@ -13,6 +13,7 @@ import FluentLogo from '../icons/fluent';
 import ReactLogo from '../icons/react';
 import FileUploadImg from '../icons/file-upload.png';
 import NavbarImg from '../icons/navbar.png';
+import SwitchImg from '../icons/switch.png';
 
 const useStyles = makeStyles({
   hero: {

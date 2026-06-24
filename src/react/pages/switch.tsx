@@ -1,64 +1,55 @@
+import { Fragment } from 'react';
 import ComponentsLayout from '../layouts/componentsLayout';
 import ComponentPreview from '../components/componentPreview';
-import Switch001 from '../components/switch/switch-001';
-import Switch001Code from '../components/switch/switch-001?raw';
-import Switch002 from '../components/switch/switch-002';
-import Switch002Code from '../components/switch/switch-002?raw';
-import Switch003 from '../components/switch/switch-003';
-import Switch003Code from '../components/switch/switch-003?raw';
-import Switch004 from '../components/switch/switch-004';
-import Switch004Code from '../components/switch/switch-004?raw';
-import Switch005 from '../components/switch/switch-005';
-import Switch005Code from '../components/switch/switch-005?raw';
-import Switch006 from '../components/switch/switch-006';
-import Switch006Code from '../components/switch/switch-006?raw';
-import Switch007 from '../components/switch/switch-007';
-import Switch007Code from '../components/switch/switch-007?raw';
-import Switch008 from '../components/switch/switch-008';
-import Switch008Code from '../components/switch/switch-008?raw';
-import Switch009 from '../components/switch/switch-009';
-import Switch009Code from '../components/switch/switch-009?raw';
-import Switch010 from '../components/switch/switch-010';
-import Switch010Code from '../components/switch/switch-010?raw';
+import Switch001 from '@/components/switch/switch001';
+import Switch001Code from '@/components/switch/switch001?raw';
+import Switch002 from '@/components/switch/switch002';
+import Switch002Code from '@/components/switch/switch002?raw';
+import Switch003 from '@/components/switch/switch003';
+import Switch003Code from '@/components/switch/switch003?raw';
+import Switch004 from '@/components/switch/switch004';
+import Switch004Code from '@/components/switch/switch004?raw';
+import Switch005 from '@/components/switch/switch005';
+import Switch005Code from '@/components/switch/switch005?raw';
+import Switch006 from '@/components/switch/switch006';
+import Switch006Code from '@/components/switch/switch006?raw';
+import Switch007 from '@/components/switch/switch007';
+import Switch007Code from '@/components/switch/switch007?raw';
+import Switch008 from '@/components/switch/switch008';
+import Switch008Code from '@/components/switch/switch008?raw';
+import Switch009 from '@/components/switch/switch009';
+import Switch009Code from '@/components/switch/switch009?raw';
+import Switch010 from '@/components/switch/switch010';
+import Switch010Code from '@/components/switch/switch010?raw';
 
 type Props = {
   title: string;
   description: string;
 };
 
-export default function NavbarPage({ title, description }: Props) {
+const switches = [
+  { name: 'switch001', Component: Switch001, code: Switch001Code },
+  { name: 'switch002', Component: Switch002, code: Switch002Code },
+  { name: 'switch003', Component: Switch003, code: Switch003Code },
+  { name: 'switch004', Component: Switch004, code: Switch004Code },
+  { name: 'switch005', Component: Switch005, code: Switch005Code },
+  { name: 'switch006', Component: Switch006, code: Switch006Code },
+  { name: 'switch007', Component: Switch007, code: Switch007Code },
+  { name: 'switch008', Component: Switch008, code: Switch008Code },
+  { name: 'switch009', Component: Switch009, code: Switch009Code },
+  { name: 'switch010', Component: Switch010, code: Switch010Code },
+];
+
+export default function SwitchPage({ title, description }: Props) {
   return (
     <ComponentsLayout title={title} description={description}>
-      <ComponentPreview size='sm' code={Switch001Code}>
-        <Switch001 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch002Code}>
-        <Switch002 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch003Code}>
-        <Switch003 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch004Code}>
-        <Switch004 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch005Code}>
-        <Switch005 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch006Code}>
-        <Switch006 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch007Code}>
-        <Switch007 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch008Code}>
-        <Switch008 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch009Code}>
-        <Switch009 />
-      </ComponentPreview>
-      <ComponentPreview size='sm' code={Switch010Code}>
-        <Switch010 />
-      </ComponentPreview>
+      {switches.map(({ name, Component, code }) => (
+        <Fragment key={name}>
+          <ComponentPreview size='sm' name={name} code={code}>
+            <Component />
+          </ComponentPreview>
+        </Fragment>
+      ))}
     </ComponentsLayout>
   );
 }
