@@ -1,11 +1,31 @@
 import Fluent2Logo from '../icons/fluent';
 import {
   Body1Strong,
+  Button,
   makeStyles,
   mergeClasses,
   tokens,
 } from '@fluentui/react-components';
+import { WeatherMoonRegular, WeatherSunnyRegular } from '@fluentui/react-icons';
 import GithubIcon from '../icons/github';
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+
+  let isDark: boolean;
+  if (current === 'dark') {
+    isDark = true;
+  } else if (current === 'light') {
+    isDark = false;
+  } else {
+    isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  const next = isDark ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
 
 export default function Header() {
   const styles = useStyles();
@@ -43,6 +63,21 @@ export default function Header() {
             aria-label='github'>
             <GithubIcon className={styles.githubIcon} width={24} height={24} />
           </a>
+
+          <Button
+            type='button'
+            onClick={toggleTheme}
+            aria-label='toggle theme'
+            className={styles.themeToggle}
+            appearance='subtle'
+            shape='circular'
+            icon={
+              <>
+                {/* Both icons are rendered; the global.css file determines which one is visible based on the active color-scheme. */}
+                <WeatherSunnyRegular id='light-icon' />
+                <WeatherMoonRegular id='dark-icon' />
+              </>
+            }></Button>
         </div>
       </div>
     </header>
@@ -90,9 +125,10 @@ const useStyles = makeStyles({
     height: '1.5rem',
     color: tokens.colorNeutralForeground2,
     transition: 'color 100ms ease-in-out',
-
-    ':hover': {
-      color: tokens.colorBrandBackground,
+  },
+  themeToggle: {
+    '&:hover svg': {
+      color: tokens.colorNeutralForeground1,
     },
   },
 });
