@@ -6,7 +6,7 @@
     "fluentui-recipes": "./dist/cli.js"
   },
   "files": [
-    "dist",
+    "dist/cli.js",
     "src/registry"
   ],
   "scripts": {
