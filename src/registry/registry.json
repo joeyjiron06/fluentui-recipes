@@ -1788,6 +1788,263 @@
         "@fluentui/react-components",
         "@fluentui/react-icons"
       ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner001.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "cookies",
+          "gdpr",
+          "privacy",
+          "consent"
+        ]
+      },
+      "name": "banner001",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner002.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "link"
+        ]
+      },
+      "name": "banner002",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner003.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "upgrade"
+        ]
+      },
+      "name": "banner003",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner004.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "link"
+        ]
+      },
+      "name": "banner004",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner005.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "dismissible"
+        ]
+      },
+      "name": "banner005",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner006.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "actions",
+          "dismissible"
+        ]
+      },
+      "name": "banner006",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner007.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "actions",
+          "dismissible"
+        ]
+      },
+      "name": "banner007",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner008.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "dismissible"
+        ]
+      },
+      "name": "banner008",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner009.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "announcement",
+          "feature",
+          "dismissible"
+        ]
+      },
+      "name": "banner009",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner010.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "countdown",
+          "sale",
+          "dismissible"
+        ]
+      },
+      "name": "banner010",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner011.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "newsletter",
+          "subscribe"
+        ]
+      },
+      "name": "banner011",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/banner/banner012.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "banner",
+          "update",
+          "version",
+          "download"
+        ]
+      },
+      "name": "banner012",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
     }
   ]
 }

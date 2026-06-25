@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../astro/layouts/baseLayout.astro';
+import BannerPage from '../react/pages/banner';
+
+const title = 'Banner';
+const description =
+  'A collection of banner components built with React and Fluent UI 2';
+---
+
+<BaseLayout title={title} description={description}>
+  <BannerPage title={title} description={description} client:load />
+</BaseLayout>

@@ -18,6 +18,7 @@ import FileUploadImg from '../icons/file-upload.png';
 import NavbarImg from '../icons/navbar.png';
 import SwitchImg from '../icons/switch.png';
 import AccordionIcon from '../icons/accordion';
+import BannerIcon from '../icons/banner';
 
 const useStyles = makeStyles({
   hero: {
@@ -102,6 +103,16 @@ const categories: Category[] = [
     href: 'accordion',
     image: (
       <AccordionIcon
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+      />
+    ),
+  },
+  {
+    title: 'Banner',
+    description: '12 components',
+    href: 'banner',
+    image: (
+      <BannerIcon
         style={{ objectFit: 'contain', width: '100%', height: '100%' }}
       />
     ),
