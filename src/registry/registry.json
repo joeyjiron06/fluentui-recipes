@@ -1344,6 +1344,450 @@
       "dependencies": [
         "@fluentui/react-components"
       ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion001.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "chevron"
+        ]
+      },
+      "name": "accordion001",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion002.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "plus minus"
+        ]
+      },
+      "name": "accordion002",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion003.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "left chevron"
+        ]
+      },
+      "name": "accordion003",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion004.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "left plus minus"
+        ]
+      },
+      "name": "accordion004",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion005.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "icon",
+          "chevron"
+        ]
+      },
+      "name": "accordion005",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion006.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "icon",
+          "plus minus"
+        ]
+      },
+      "name": "accordion006",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion007.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "sub-header",
+          "chevron"
+        ]
+      },
+      "name": "accordion007",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion008.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "sub-header",
+          "plus minus"
+        ]
+      },
+      "name": "accordion008",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion009.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "icon",
+          "sub-header",
+          "chevron"
+        ]
+      },
+      "name": "accordion009",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion010.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "icon",
+          "sub-header",
+          "plus minus"
+        ]
+      },
+      "name": "accordion010",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion011.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "tabs",
+          "chevron"
+        ]
+      },
+      "name": "accordion011",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion012.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "tabs",
+          "plus minus"
+        ]
+      },
+      "name": "accordion012",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion013.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "tabs",
+          "left chevron"
+        ]
+      },
+      "name": "accordion013",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion014.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "tabs",
+          "left plus minus"
+        ]
+      },
+      "name": "accordion014",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion015.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "table",
+          "chevron"
+        ]
+      },
+      "name": "accordion015",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion016.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "table",
+          "plus minus"
+        ]
+      },
+      "name": "accordion016",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion017.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "table",
+          "left chevron"
+        ]
+      },
+      "name": "accordion017",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion018.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "table",
+          "left plus minus"
+        ]
+      },
+      "name": "accordion018",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion019.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "multi-level",
+          "nested"
+        ]
+      },
+      "name": "accordion019",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/accordion/accordion020.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "accordion",
+          "collapsible",
+          "disclosure",
+          "multi-level",
+          "nested",
+          "icon"
+        ]
+      },
+      "name": "accordion020",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
     }
   ]
 }

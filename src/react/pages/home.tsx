@@ -17,6 +17,7 @@ import ReactLogo from '../icons/react';
 import FileUploadImg from '../icons/file-upload.png';
 import NavbarImg from '../icons/navbar.png';
 import SwitchImg from '../icons/switch.png';
+import AccordionIcon from '../icons/accordion';
 
 const useStyles = makeStyles({
   hero: {
@@ -95,6 +96,16 @@ type Category = {
 };
 
 const categories: Category[] = [
+  {
+    title: 'Accordion',
+    description: '20 components',
+    href: 'accordion',
+    image: (
+      <AccordionIcon
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+      />
+    ),
+  },
   {
     title: 'File Upload',
     description: '12 components',
