@@ -1,0 +1,101 @@
+import {
+  Caption1,
+  Checkbox,
+  Label,
+  makeStyles,
+  tokens,
+} from '@fluentui/react-components';
+import { useId } from 'react';
+
+export default function Component() {
+  const styles = useStyles();
+  const id = useId();
+  const descId = `${id}-description`;
+  return (
+    <div className={styles.card}>
+      <Checkbox className={styles.checkbox} id={id} aria-describedby={descId} />
+      <div className={styles.content}>
+        <svg
+          aria-hidden='true'
+          className={styles.logo}
+          height={24}
+          viewBox='0 0 32 24'
+          width={32}
+          xmlns='http://www.w3.org/2000/svg'>
+          <rect fill='#252525' height='24' rx='4' width='32' />
+          <path
+            d='M19.0537 6.49742H12.9282V17.5026H19.0537V6.49742Z'
+            fill='#FF5A00'
+          />
+          <path
+            d='M13.3359 12C13.3359 9.76408 14.3871 7.77961 16 6.49741C14.8129 5.56408 13.3155 5 11.6822 5C7.81295 5 4.68221 8.13074 4.68221 12C4.68221 15.8693 7.81295 19 11.6822 19C13.3155 19 14.8129 18.4359 16 17.5026C14.3848 16.2385 13.3359 14.2359 13.3359 12Z'
+            fill='#EB001B'
+          />
+          <path
+            d='M27.3178 12C27.3178 15.8693 24.1871 19 20.3178 19C18.6845 19 17.1871 18.4359 16 17.5026C17.6333 16.2181 18.6641 14.2359 18.6641 12C18.6641 9.76408 17.6129 7.77961 16 6.49741C17.1848 5.56408 18.6822 5 20.3155 5C24.1871 5 27.3178 8.15113 27.3178 12Z'
+            fill='#F79E1B'
+          />
+        </svg>
+        <div className={styles.text}>
+          <Label htmlFor={id}>
+            Label <span className={styles.sublabel}>(Sublabel)</span>
+          </Label>
+          <Caption1 id={descId} className={styles.description}>
+            A short description goes here.
+          </Caption1>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const useStyles = makeStyles({
+  card: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: tokens.spacingHorizontalS,
+    width: '100%',
+    padding: tokens.spacingHorizontalL,
+    borderRadius: tokens.borderRadiusMedium,
+    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    boxShadow: tokens.shadow2,
+    '&:has(input:checked)': {
+      'border-color': tokens.colorBrandStroke1,
+    },
+  },
+  checkbox: {
+    order: 1,
+    position: 'static',
+    '& .fui-Checkbox__input': {
+      position: 'static',
+    },
+    '& .fui-Checkbox__input::after': {
+      content: '""',
+      position: 'absolute',
+      inset: 0,
+      zIndex: 10,
+    },
+  },
+  content: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: tokens.spacingHorizontalM,
+    flexGrow: 1,
+  },
+  logo: {
+    flexShrink: 0,
+  },
+  text: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalXS,
+  },
+  sublabel: {
+    color: tokens.colorNeutralForeground3,
+    fontWeight: tokens.fontWeightRegular,
+  },
+  description: {
+    color: tokens.colorNeutralForeground3,
+  },
+});

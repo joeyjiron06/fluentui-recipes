@@ -20,6 +20,7 @@ import SwitchImg from '../icons/switch.png';
 import AccordionIcon from '../icons/accordion';
 import BannerIcon from '../icons/banner';
 import BreadcrumbIcon from '../icons/breadcrumb';
+import CheckboxIcon from '../icons/checkbox';
 
 const useStyles = makeStyles({
   hero: {
@@ -124,6 +125,16 @@ const categories: Category[] = [
     href: 'breadcrumb',
     image: (
       <BreadcrumbIcon
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+      />
+    ),
+  },
+  {
+    title: 'Checkbox',
+    description: '19 components',
+    href: 'checkbox',
+    image: (
+      <CheckboxIcon
         style={{ objectFit: 'contain', width: '100%', height: '100%' }}
       />
     ),

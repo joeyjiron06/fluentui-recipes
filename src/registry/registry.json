@@ -2214,6 +2214,386 @@
         "@fluentui/react-components",
         "@fluentui/react-icons"
       ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox001.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "label",
+          "form input"
+        ]
+      },
+      "name": "checkbox001",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox002.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "indeterminate",
+          "mixed"
+        ]
+      },
+      "name": "checkbox002",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox003.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "color",
+          "custom"
+        ]
+      },
+      "name": "checkbox003",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox004.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "disabled"
+        ]
+      },
+      "name": "checkbox004",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox005.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "todo",
+          "list"
+        ]
+      },
+      "name": "checkbox005",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox006.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "todo",
+          "animated"
+        ]
+      },
+      "name": "checkbox006",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox007.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "terms",
+          "link"
+        ]
+      },
+      "name": "checkbox007",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox008.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "group",
+          "inline"
+        ]
+      },
+      "name": "checkbox008",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox009.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "group",
+          "stacked"
+        ]
+      },
+      "name": "checkbox009",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox010.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "right aligned"
+        ]
+      },
+      "name": "checkbox010",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox011.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "label",
+          "description"
+        ]
+      },
+      "name": "checkbox011",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox012.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "expansion",
+          "input"
+        ]
+      },
+      "name": "checkbox012",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox013.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "right aligned",
+          "description"
+        ]
+      },
+      "name": "checkbox013",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox014.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "card",
+          "description"
+        ]
+      },
+      "name": "checkbox014",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox015.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "card",
+          "payment"
+        ]
+      },
+      "name": "checkbox015",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox016.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "card",
+          "logo"
+        ]
+      },
+      "name": "checkbox016",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox017.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "card",
+          "grid",
+          "icons"
+        ]
+      },
+      "name": "checkbox017",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox018.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "tree",
+          "indeterminate"
+        ]
+      },
+      "name": "checkbox018",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/checkbox/checkbox019.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "checkbox",
+          "group",
+          "days"
+        ]
+      },
+      "name": "checkbox019",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components"
+      ]
     }
   ]
 }
