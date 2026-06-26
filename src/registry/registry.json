@@ -2045,6 +2045,175 @@
         "@fluentui/react-components",
         "@fluentui/react-icons"
       ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb001.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "overflow menu"
+        ]
+      },
+      "name": "breadcrumb001",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb002.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "overflow menu",
+          "icon"
+        ]
+      },
+      "name": "breadcrumb002",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb003.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "icon"
+        ]
+      },
+      "name": "breadcrumb003",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb004.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "icon"
+        ]
+      },
+      "name": "breadcrumb004",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb005.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "custom separator"
+        ]
+      },
+      "name": "breadcrumb005",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb006.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "custom separator"
+        ]
+      },
+      "name": "breadcrumb006",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb007.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "container"
+        ]
+      },
+      "name": "breadcrumb007",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "components/breadcrumb/breadcrumb008.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "meta": {
+        "tags": [
+          "breadcrumb",
+          "navigation",
+          "dropdown"
+        ]
+      },
+      "name": "breadcrumb008",
+      "type": "registry:component",
+      "dependencies": [
+        "@fluentui/react-components",
+        "@fluentui/react-icons"
+      ]
     }
   ]
 }

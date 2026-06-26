@@ -19,6 +19,7 @@ import NavbarImg from '../icons/navbar.png';
 import SwitchImg from '../icons/switch.png';
 import AccordionIcon from '../icons/accordion';
 import BannerIcon from '../icons/banner';
+import BreadcrumbIcon from '../icons/breadcrumb';
 
 const useStyles = makeStyles({
   hero: {
@@ -113,6 +114,16 @@ const categories: Category[] = [
     href: 'banner',
     image: (
       <BannerIcon
+        style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+      />
+    ),
+  },
+  {
+    title: 'Breadcrumb',
+    description: '8 components',
+    href: 'breadcrumb',
+    image: (
+      <BreadcrumbIcon
         style={{ objectFit: 'contain', width: '100%', height: '100%' }}
       />
     ),
